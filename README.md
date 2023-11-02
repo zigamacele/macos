@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="https://i.imgur.com/SL2D8RY.png" width="200">
 
-Currently, two official plugins are available:
+# GACHAREVENUE
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+an easy way to check gacha game revenue
 
-## Expanding the ESLint configuration
+[Website](https://www.gacharevenue.com/) ・ [SensorTower](https://sensortower.com/) ・ [Reddit](https://www.reddit.com/r/gachagaming/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+</div>
 
-- Configure the top-level `parserOptions` property like this:
+<br />
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Preview
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+https://github.com/zigamacele/gacharevenue/assets/19758116/dee4c649-7e22-4f62-9880-b3bdc900f6be
+
+## Screenshots
+
+<img src="https://i.imgur.com/dYI5qKd.png" >
+<img src="https://i.imgur.com/OmeDAyM.png" >
+<img src="https://i.imgur.com/hp1bggl.png" >
+<img src="https://i.imgur.com/YnqsxVo.png" >
+
+## Technologies
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Nivo](https://nivo.rocks/)
+- [Supabase](https://supabase.io/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
