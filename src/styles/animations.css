@@ -4,6 +4,10 @@
   opacity: 100%;
 }
 
+.inputWiggle {
+  animation: wiggleAnimation 0.5s ease-in;
+}
+
 @keyframes bootMaskAnimation {
   0% {
     clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
@@ -13,5 +17,26 @@
   }
   100% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes wiggleAnimation {
+  0% {
+    transform: translateX(-5%);
+  }
+  20% {
+    transform: translateX(5%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  60% {
+    transform: translateX(5%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
