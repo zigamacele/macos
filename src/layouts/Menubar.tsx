@@ -1,4 +1,5 @@
 import MenubarBattery from '@/components/menubar/MenubarBattery'
+import MenubarDateTime from '@/components/menubar/MenubarDateTime'
 import MenubarHiddenBar from '@/components/menubar/MenubarHiddenBar'
 import MenubarTrigger from '@/components/menubar/MenubarTrigger'
 
@@ -22,7 +23,7 @@ const Menubar = () => {
     <div
       className={cn(
         'absolute flex h-8 w-screen items-center justify-end px-4 ',
-        isHomeScreen && 'justify-between bg-black/30 backdrop-blur-lg',
+        isHomeScreen && 'justify-between bg-black/20 backdrop-blur-2xl',
       )}
     >
       {isHomeScreen && (
@@ -36,6 +37,7 @@ const Menubar = () => {
         <MenubarBattery />
         <MenubarTrigger icon={Icon.WIFI} className='h-[18px] w-[18px]' />
         <MenubarTrigger icon={Icon.CONTROL_CENTER} className='h-4 w-4' />
+        <MenubarDateTime />
       </div>
     </div>
   )
