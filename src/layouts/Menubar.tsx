@@ -1,7 +1,6 @@
-import AppleLogo from '@/components/AppleLogo'
 import MenubarBattery from '@/components/menubar/MenubarBattery'
 import MenubarHiddenBar from '@/components/menubar/MenubarHiddenBar'
-import MenubarIcon from '@/components/menubar/MenubarIcon'
+import MenubarTrigger from '@/components/menubar/MenubarTrigger'
 
 import useSystemStore from '@/stores/system-store.ts'
 
@@ -26,12 +25,17 @@ const Menubar = () => {
         isHomeScreen && 'justify-between bg-black/30 backdrop-blur-lg',
       )}
     >
-      {isHomeScreen && <AppleLogo className='h-4 w-4 drop-shadow-lg' />}
+      {isHomeScreen && (
+        <MenubarTrigger
+          icon={Icon.APPLE_LOGO}
+          className='h-4 w-4 drop-shadow-lg'
+        />
+      )}
       <div className='flex items-center gap-4'>
         <MenubarHiddenBar />
         <MenubarBattery />
-        <MenubarIcon icon={Icon.WIFI} className='h-[18px] w-[18px]' />
-        <MenubarIcon icon={Icon.CONTROL_CENTER} className='h-4 w-4' />
+        <MenubarTrigger icon={Icon.WIFI} className='h-[18px] w-[18px]' />
+        <MenubarTrigger icon={Icon.CONTROL_CENTER} className='h-4 w-4' />
       </div>
     </div>
   )
