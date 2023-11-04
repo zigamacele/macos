@@ -4,7 +4,7 @@ import useAudioPlayer from '@/hooks/useAudioPlayer.tsx'
 
 import useSystemStore from '@/stores/system-store'
 
-import chime from '@/assets/boot/chime.mp3'
+import chime from '@/assets/sounds/chime.mp3'
 
 import AppleLogo from '../AppleLogo'
 
