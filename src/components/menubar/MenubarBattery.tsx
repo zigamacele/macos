@@ -4,8 +4,8 @@ import MenubarTrigger from './MenubarTrigger'
 
 const MenubarBattery = () => {
   return (
-    <span className='flex items-center gap-1.5 text-xs'>
-      <p className='font-light'>81%</p>
+    <span className='flex cursor-pointer items-center gap-1 text-xs'>
+      <p>81%</p>
       <MenubarTrigger icon={Icon.BATTERY} />
     </span>
   )

@@ -14,7 +14,7 @@ const MenubarDateTime = () => {
   }, [])
 
   return (
-    <section className='flex cursor-pointer gap-2 text-sm'>
+    <section className='flex cursor-pointer gap-2 text-[13px]'>
       <span>{dateTime.currentDate}</span>
       <span>{dateTime.currentTime}</span>
     </section>

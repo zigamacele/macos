@@ -35,7 +35,7 @@ const LoginScreen = () => {
 
   return (
     <main
-      className='flex h-screen w-screen flex-col items-center justify-center gap-8 bg-black/20 animate-in fade-in-0'
+      className='flex h-screen w-screen flex-col items-center justify-center gap-8 bg-black/30 animate-in fade-in-0'
       onClick={() => setShowLoginInput(true)}
     >
       <img src={avatar} className='h-[8.5em] w-[8.5em]' />

@@ -9,7 +9,7 @@ import useSystemStore from './stores/system-store'
 import { SystemScreen } from './types/store'
 
 const App = () => {
-  const { play } = UseAudioPlayer(trackpadClick, 0, 0.15)
+  const { play } = UseAudioPlayer(trackpadClick, 0, 0.25)
   const { screen } = useSystemStore()
 
   const playTrackpadClick = () => {
