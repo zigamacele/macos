@@ -1,5 +1,11 @@
+import Dock from '../homescreen/Dock'
+
 const HomeScreen = () => {
-  return <div>Home</div>
+  return (
+    <div>
+      <Dock />
+    </div>
+  )
 }
 
 export default HomeScreen
