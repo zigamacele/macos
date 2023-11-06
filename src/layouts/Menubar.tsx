@@ -24,7 +24,7 @@ const Menubar = () => {
     <>
       {/* TODO: refactor this. for some reason backdrop-blur inside of backdrop-blur doesnt work.. */}
       {isHomeScreen && (
-        <div className='absolute z-50 ml-3 mt-[5px] flex items-center gap-2.5 text-[13px]'>
+        <div className='absolute left-4 z-50 mt-[5px] flex items-center gap-2.5 text-[13px]'>
           <MenubarTrigger
             icon={Icon.APPLE_LOGO}
             className='mb-0.5 h-4 w-4 cursor-pointer drop-shadow-lg'
