@@ -23,12 +23,12 @@ const Menubar = () => {
   return (
     <div
       className={cn(
-        'absolute flex h-8 w-screen items-center justify-end px-4 ',
+        'absolute z-50 flex h-8 w-screen items-center justify-end px-4 ',
         isHomeScreen && 'justify-between bg-black/20 backdrop-blur-2xl',
       )}
     >
       {isHomeScreen && (
-        <div className='flex items-center gap-5 text-[13px]'>
+        <div className='flex items-center gap-3 text-[13px]'>
           <MenubarTrigger
             icon={Icon.APPLE_LOGO}
             className='h-4 w-4 cursor-pointer drop-shadow-lg'
