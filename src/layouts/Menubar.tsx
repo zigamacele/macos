@@ -21,29 +21,32 @@ const Menubar = () => {
   const isHomeScreen = screen === SystemScreen.HOME
 
   return (
-    <div
-      className={cn(
-        'absolute z-50 flex h-8 w-screen items-center justify-end px-4 ',
-        isHomeScreen && 'justify-between bg-black/20 backdrop-blur-2xl',
-      )}
-    >
+    <>
+      {/* TODO: refactor this. for some reason backdrop-blur inside of backdrop-blur doesnt work.. */}
       {isHomeScreen && (
-        <div className='flex items-center gap-3 text-[13px]'>
+        <div className='absolute z-50 ml-3 mt-[5px] flex items-center gap-2.5 text-[13px]'>
           <MenubarTrigger
             icon={Icon.APPLE_LOGO}
-            className='h-4 w-4 cursor-pointer drop-shadow-lg'
+            className='mb-0.5 h-4 w-4 cursor-pointer drop-shadow-lg'
           />
           <MenubarWindow />
         </div>
       )}
-      <div className='flex items-center gap-5'>
-        <MenubarHiddenBar />
-        <MenubarBattery />
-        <MenubarTrigger icon={Icon.WIFI} className='h-[18px] w-[18px]' />
-        <MenubarTrigger icon={Icon.CONTROL_CENTER} className='h-4 w-4' />
-        <MenubarDateTime />
+      <div
+        className={cn(
+          'absolute z-40 flex h-[34px] w-screen items-center justify-end px-4 ',
+          isHomeScreen && 'bg-black/20 backdrop-blur-2xl',
+        )}
+      >
+        <div className='flex items-center gap-5'>
+          <MenubarHiddenBar />
+          <MenubarBattery />
+          <MenubarTrigger icon={Icon.WIFI} className='h-[18px] w-[18px]' />
+          <MenubarTrigger icon={Icon.CONTROL_CENTER} className='h-4 w-4' />
+          <MenubarDateTime />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
