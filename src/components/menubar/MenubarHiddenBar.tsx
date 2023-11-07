@@ -7,10 +7,14 @@ const MenubarHiddenBar = () => {
   const [showHiddenBar, setShowHiddenBar] = useState(false)
 
   const toggleHiddenBar = () => {
-    setShowHiddenBar(true)
-    setTimeout(() => {
-      setShowHiddenBar(false)
-    }, 10 * 1000)
+    if (!showHiddenBar) {
+      setShowHiddenBar(true)
+      setTimeout(() => {
+        setShowHiddenBar(false)
+      }, 10 * 1000)
+      return
+    }
+    setShowHiddenBar(false)
   }
 
   return (
