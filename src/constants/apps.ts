@@ -1,4 +1,13 @@
+import bin from '@/assets/apps/bin.png'
+import bitwarden from '@/assets/apps/bitwarden.png'
+import chrome from '@/assets/apps/chrome.png'
+import discord from '@/assets/apps/discord.png'
+import figma from '@/assets/apps/figma.png'
 import finder from '@/assets/apps/finder.png'
+import iterm2 from '@/assets/apps/iterm2.png'
+import obsidian from '@/assets/apps/obsidian.png'
+import spotify from '@/assets/apps/spotify.png'
+import vscode from '@/assets/apps/vscode.png'
 
 import { App, Menubar } from '@/types/apps'
 
@@ -146,8 +155,26 @@ export const AppMenubar: Menubar = {
       submenu: [{ label: 'Tips for Your Mac' }, { label: 'macOS Help' }],
     },
   ],
+  [App.BIN]: [],
+  [App.BITWARDEN]: [],
+  [App.CHROME]: [],
+  [App.DISCORD]: [],
+  [App.FIGMA]: [],
+  [App.ITERM2]: [],
+  [App.OBSIDIAN]: [],
+  [App.SPOTIFY]: [],
+  [App.VSCODE]: [],
 }
 
 export const AppIcon = {
   [App.FINDER]: finder,
+  [App.BIN]: bin,
+  [App.BITWARDEN]: bitwarden,
+  [App.CHROME]: chrome,
+  [App.DISCORD]: discord,
+  [App.FIGMA]: figma,
+  [App.ITERM2]: iterm2,
+  [App.OBSIDIAN]: obsidian,
+  [App.SPOTIFY]: spotify,
+  [App.VSCODE]: vscode,
 }
