@@ -41,23 +41,23 @@ export const hiddenBarIcons = [
     link: 'https://apps.apple.com/tr/app/command-x/id6448461551?mt=12',
   },
   {
-    icon: iconLibrary[Icon.SLIDEPAD],
-    link: 'https://slidepad.app/',
-  },
-  {
-    icon: iconLibrary[Icon.ALTTAB],
-    link: 'https://github.com/lwouis/alt-tab-macos',
-  },
-  {
     icon: iconLibrary[Icon.RECTANGLE],
     link: 'https://github.com/rxhanson/Rectangle',
+  },
+  {
+    icon: iconLibrary[Icon.ALDENTE],
+    link: 'https://github.com/AppHouseKitchen/AlDente-Charge-Limiter',
   },
   {
     icon: iconLibrary[Icon.RAYCAST],
     link: 'https://www.raycast.com/',
   },
   {
-    icon: iconLibrary[Icon.ALDENTE],
-    link: 'https://github.com/AppHouseKitchen/AlDente-Charge-Limiter',
+    icon: iconLibrary[Icon.ALTTAB],
+    link: 'https://github.com/lwouis/alt-tab-macos',
+  },
+  {
+    icon: iconLibrary[Icon.SLIDEPAD],
+    link: 'https://slidepad.app/',
   },
 ]
