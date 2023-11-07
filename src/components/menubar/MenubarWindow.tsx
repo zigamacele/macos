@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import useSystemStore from '@/stores/system-store'
+import useWindowManager from '@/stores/window_manager-store'
 
 import { AppMenubar } from '@/constants/apps'
 import { cn } from '@/utils/styles'
@@ -8,7 +8,7 @@ import { cn } from '@/utils/styles'
 import MenubarSubWindow from './MenubarSubWindow'
 
 const MenubarWindow = () => {
-  const { window } = useSystemStore()
+  const { window } = useWindowManager()
   const [selectedMenu, setSelectedMenu] = useState<number | undefined>(
     undefined,
   )

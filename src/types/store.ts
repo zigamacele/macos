@@ -2,9 +2,12 @@ import { App } from './apps'
 
 export interface SystemStore {
   screen: SystemScreen
-  window: App
   setScreen: (screen: SystemScreen) => void
-  setFocusWindow: (window: App) => void
+}
+
+export interface WindowManagerStore {
+  window: App
+  setFocusWindow: (screen: App) => void
 }
 
 export enum SystemScreen {
