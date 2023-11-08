@@ -14,7 +14,12 @@ interface DockAppProps {
 
 const DockApp = ({ app, index }: DockAppProps) => {
   const [isHovering, setIsHovering] = useState(false)
-  const { isAppOpen } = useWindowManager()
+  const { isAppOpen, openApp, setFocusWindow } = useWindowManager()
+
+  const onAppClick = () => {
+    openApp(app)
+    setFocusWindow(app)
+  }
   return (
     <div
       className={cn(
@@ -24,10 +29,12 @@ const DockApp = ({ app, index }: DockAppProps) => {
       )}
     >
       <img
+        alt={app}
         src={AppIcon[app]}
         className='h-11 w-11'
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
+        onClick={onAppClick}
       />
       {isAppOpen(app) && (
         <span className='absolute left-[-4px] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80' />

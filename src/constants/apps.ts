@@ -14,7 +14,7 @@ import { App, Menubar } from '@/types/apps'
 export const AppMenubar: Menubar = {
   [App.FINDER]: [
     {
-      label: 'Finder',
+      label: App.FINDER,
       submenu: [
         { label: 'About Finder' },
         { label: 'hr' },
@@ -155,15 +155,51 @@ export const AppMenubar: Menubar = {
       submenu: [{ label: 'Tips for Your Mac' }, { label: 'macOS Help' }],
     },
   ],
-  [App.BIN]: [],
-  [App.BITWARDEN]: [],
-  [App.CHROME]: [],
-  [App.DISCORD]: [],
-  [App.FIGMA]: [],
-  [App.ITERM2]: [],
-  [App.OBSIDIAN]: [],
-  [App.SPOTIFY]: [],
-  [App.VSCODE]: [],
+  [App.BIN]: [
+    {
+      label: App.BIN,
+    },
+  ],
+  [App.BITWARDEN]: [
+    {
+      label: App.BITWARDEN,
+    },
+  ],
+  [App.CHROME]: [
+    {
+      label: App.CHROME,
+    },
+  ],
+  [App.DISCORD]: [
+    {
+      label: App.DISCORD,
+    },
+  ],
+  [App.FIGMA]: [
+    {
+      label: App.FIGMA,
+    },
+  ],
+  [App.ITERM2]: [
+    {
+      label: App.ITERM2,
+    },
+  ],
+  [App.OBSIDIAN]: [
+    {
+      label: App.OBSIDIAN,
+    },
+  ],
+  [App.SPOTIFY]: [
+    {
+      label: App.SPOTIFY,
+    },
+  ],
+  [App.VSCODE]: [
+    {
+      label: App.VSCODE,
+    },
+  ],
 }
 
 export const AppIcon = {

@@ -11,6 +11,7 @@ export interface WindowManagerStore {
   openWindows: App[]
   setFocusWindow: (focusedWindow: App) => void
   isAppOpen: (app: App) => boolean
+  openApp: (app: App) => void
 }
 
 export enum SystemScreen {
