@@ -8,7 +8,7 @@ import { cn } from '@/utils/styles'
 import MenubarSubWindow from './MenubarSubWindow'
 
 const MenubarWindow = () => {
-  const { window } = useWindowManager()
+  const { focusedWindow } = useWindowManager()
   const [selectedMenu, setSelectedMenu] = useState<number | undefined>(
     undefined,
   )
@@ -25,7 +25,7 @@ const MenubarWindow = () => {
 
   return (
     <section className='[&>*:nth-child(1)]:font-bold'>
-      {AppMenubar[window].map((menu, index) => (
+      {AppMenubar[focusedWindow].map((menu, index) => (
         <span key={menu.label} className='relative'>
           <button
             className={cn(

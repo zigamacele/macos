@@ -6,8 +6,11 @@ export interface SystemStore {
 }
 
 export interface WindowManagerStore {
-  window: App
-  setFocusWindow: (screen: App) => void
+  focusedWindow: App
+  minimizedWindows: App[]
+  openWindows: App[]
+  setFocusWindow: (focusedWindow: App) => void
+  isAppOpen: (app: App) => boolean
 }
 
 export enum SystemScreen {
