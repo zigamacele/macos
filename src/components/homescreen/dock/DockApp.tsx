@@ -3,18 +3,26 @@ import { useState } from 'react'
 import useWindowManager from '@/stores/window_manager-store'
 
 import { AppIcon } from '@/constants/apps'
+import { cn } from '@/utils/styles'
 
 import { App } from '@/types/apps'
 
 interface DockAppProps {
   app: App
+  index: number
 }
 
-const DockApp = ({ app }: DockAppProps) => {
+const DockApp = ({ app, index }: DockAppProps) => {
   const [isHovering, setIsHovering] = useState(false)
   const { isAppOpen } = useWindowManager()
   return (
-    <div className='relative'>
+    <div
+      className={cn(
+        'relative',
+        index + 1 === Object.keys(App).length &&
+          'border-t border-white/20 pt-1',
+      )}
+    >
       <img
         src={AppIcon[app]}
         className='h-11 w-11'
