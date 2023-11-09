@@ -1,3 +1,5 @@
+import Finder from '@/components/apps/Finder'
+
 import bin from '@/assets/apps/bin.png'
 import bitwarden from '@/assets/apps/bitwarden.png'
 import chrome from '@/assets/apps/chrome.png'
@@ -200,6 +202,23 @@ export const AppMenubar: Menubar = {
       label: App.VSCODE,
     },
   ],
+}
+
+export const AppWindowConfig = {
+  [App.FINDER]: {
+    width: 1366,
+    height: 768,
+    component: Finder,
+  },
+  [App.CHROME]: { width: 1366, height: 768, component: Finder },
+  [App.BIN]: { width: 1366, height: 768, component: Finder },
+  [App.BITWARDEN]: { width: 1366, height: 768, component: Finder },
+  [App.DISCORD]: { width: 1366, height: 768, component: Finder },
+  [App.FIGMA]: { width: 1366, height: 768, component: Finder },
+  [App.ITERM2]: { width: 1366, height: 768, component: Finder },
+  [App.OBSIDIAN]: { width: 1366, height: 768, component: Finder },
+  [App.SPOTIFY]: { width: 1366, height: 768, component: Finder },
+  [App.VSCODE]: { width: 1366, height: 768, component: Finder },
 }
 
 export const AppIcon = {

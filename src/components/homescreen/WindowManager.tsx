@@ -7,7 +7,7 @@ const WindowManager = () => {
   return (
     <div>
       {openWindows.map((app) => (
-        <AppWindow width={1366} height={768} app={app} />
+        <AppWindow app={app} />
       ))}
     </div>
   )
