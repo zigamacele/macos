@@ -11,6 +11,13 @@ export enum App {
   BIN = 'Bin',
 }
 
+export enum ManageAppAction {
+  OPEN = 'OPEN',
+  CLOSE = 'CLOSE',
+  MINIMIZE = 'MINIMIZE',
+  FULLSCREEN = 'FULLSCREEN',
+}
+
 export type Menubar = {
   [key in App]: Menu[]
 }

@@ -5,7 +5,7 @@ import useWindowManager from '@/stores/window_manager-store'
 import { AppIcon } from '@/constants/apps'
 import { cn } from '@/utils/styles'
 
-import { App } from '@/types/apps'
+import { App, ManageAppAction } from '@/types/apps'
 
 interface DockAppProps {
   app: App
@@ -14,10 +14,10 @@ interface DockAppProps {
 
 const DockApp = ({ app, index }: DockAppProps) => {
   const [isHovering, setIsHovering] = useState(false)
-  const { isAppOpen, openApp, setFocusWindow } = useWindowManager()
+  const { isAppOpen, manageApp, setFocusWindow } = useWindowManager()
 
   const onAppClick = () => {
-    openApp(app)
+    manageApp(app, ManageAppAction.OPEN)
     setFocusWindow(app)
   }
   return (

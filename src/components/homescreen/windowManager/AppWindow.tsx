@@ -26,19 +26,25 @@ const AppWindow = ({ app }: AppWindowProps) => {
     height,
   }
 
+  const onWindowClick = () => {
+    if (focusedWindow !== app) {
+      setFocusWindow(app)
+    }
+  }
+
   const AppComponent = component
 
   return (
     <Rnd
-      className='rounded bg-red-500'
+      className='rounded'
       style={style}
       default={defaultWindowSize}
-      onClick={() => setFocusWindow(app)}
+      onClick={onWindowClick}
       disableDragging={app !== focusedWindow}
       enableResizing={app === focusedWindow}
       bounds='window'
     >
-      <AppComponent />
+      <AppComponent app={app} />
     </Rnd>
   )
 }

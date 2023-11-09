@@ -1,4 +1,4 @@
-import { App } from './apps'
+import { App, ManageAppAction } from './apps'
 
 export interface SystemStore {
   screen: SystemScreen
@@ -11,7 +11,7 @@ export interface WindowManagerStore {
   openWindows: App[]
   setFocusWindow: (focusedWindow: App) => void
   isAppOpen: (app: App) => boolean
-  openApp: (app: App) => void
+  manageApp: (app: App, action: ManageAppAction) => void
 }
 
 export enum SystemScreen {
