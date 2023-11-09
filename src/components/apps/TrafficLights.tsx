@@ -9,23 +9,27 @@ interface TrafficLightsProps {
 }
 
 const TrafficLights = ({ app }: TrafficLightsProps) => {
-  const { manageApp } = useWindowManager()
+  const { manageApp, focusedWindow } = useWindowManager()
+  const isAppFocused = focusedWindow === app
   return (
     <section className='group flex gap-2'>
       <TrafficLight
         icon='Cross2Icon'
         color='bg-red-500'
+        isAppFocused={isAppFocused}
         onClick={() => manageApp(app, ManageAppAction.CLOSE)}
       />
       <TrafficLight
         icon='MinusIcon'
         color='bg-yellow-500'
+        isAppFocused={isAppFocused}
         onClick={() => manageApp(app, ManageAppAction.MINIMIZE)}
       />
       <TrafficLight
         icon='HeightIcon'
         color='bg-green-500'
         className='-rotate-45'
+        isAppFocused={isAppFocused}
       />
     </section>
   )
