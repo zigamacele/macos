@@ -13,6 +13,32 @@ import vscode from '@/assets/apps/vscode.png'
 
 import { App, Menubar } from '@/types/apps'
 
+export const AppWindowConfig = {
+  [App.FINDER]: { width: 1024, height: 576, component: Finder },
+  [App.CHROME]: { width: 1366, height: 768, component: Finder },
+  [App.BIN]: { width: 1024, height: 576, component: Finder },
+  [App.BITWARDEN]: { width: 1024, height: 576, component: Finder },
+  [App.DISCORD]: { width: 1024, height: 576, component: Finder },
+  [App.FIGMA]: { width: 1366, height: 768, component: Finder },
+  [App.ITERM2]: { width: 800, height: 600, component: Finder },
+  [App.OBSIDIAN]: { width: 1366, height: 768, component: Finder },
+  [App.SPOTIFY]: { width: 1024, height: 576, component: Finder },
+  [App.VSCODE]: { width: 1366, height: 768, component: Finder },
+}
+
+export const AppIcon = {
+  [App.FINDER]: finder,
+  [App.BIN]: bin,
+  [App.BITWARDEN]: bitwarden,
+  [App.CHROME]: chrome,
+  [App.DISCORD]: discord,
+  [App.FIGMA]: figma,
+  [App.ITERM2]: iterm2,
+  [App.OBSIDIAN]: obsidian,
+  [App.SPOTIFY]: spotify,
+  [App.VSCODE]: vscode,
+}
+
 export const AppMenubar: Menubar = {
   [App.FINDER]: [
     {
@@ -202,34 +228,4 @@ export const AppMenubar: Menubar = {
       label: App.VSCODE,
     },
   ],
-}
-
-export const AppWindowConfig = {
-  [App.FINDER]: {
-    width: 1366,
-    height: 768,
-    component: Finder,
-  },
-  [App.CHROME]: { width: 1366, height: 768, component: Finder },
-  [App.BIN]: { width: 1366, height: 768, component: Finder },
-  [App.BITWARDEN]: { width: 1366, height: 768, component: Finder },
-  [App.DISCORD]: { width: 1366, height: 768, component: Finder },
-  [App.FIGMA]: { width: 1366, height: 768, component: Finder },
-  [App.ITERM2]: { width: 1366, height: 768, component: Finder },
-  [App.OBSIDIAN]: { width: 1366, height: 768, component: Finder },
-  [App.SPOTIFY]: { width: 1366, height: 768, component: Finder },
-  [App.VSCODE]: { width: 1366, height: 768, component: Finder },
-}
-
-export const AppIcon = {
-  [App.FINDER]: finder,
-  [App.BIN]: bin,
-  [App.BITWARDEN]: bitwarden,
-  [App.CHROME]: chrome,
-  [App.DISCORD]: discord,
-  [App.FIGMA]: figma,
-  [App.ITERM2]: iterm2,
-  [App.OBSIDIAN]: obsidian,
-  [App.SPOTIFY]: spotify,
-  [App.VSCODE]: vscode,
 }

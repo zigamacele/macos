@@ -24,7 +24,10 @@ const TrafficLight = ({
         isAppFocused && color,
         className,
       )}
-      onClick={onClick}
+      onClick={(e) => {
+        e.stopPropagation()
+        onClick && onClick()
+      }}
     >
       <Icon icon={icon} className='rotate hidden group-hover:block' />
     </button>
