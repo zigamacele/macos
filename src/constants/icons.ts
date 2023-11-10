@@ -4,6 +4,7 @@ import control_center from '@/assets/icons/control-center.svg'
 import aldente from '@/assets/icons/hiddenbar/aldente.png'
 import alttab from '@/assets/icons/hiddenbar/alttab.png'
 import commandx from '@/assets/icons/hiddenbar/commandx.png'
+import klack from '@/assets/icons/hiddenbar/klack.png'
 import raycast from '@/assets/icons/hiddenbar/raycast.png'
 import rectangle from '@/assets/icons/hiddenbar/rectangle.png'
 import slidepad from '@/assets/icons/hiddenbar/slidepad.png'
@@ -20,6 +21,7 @@ export enum Icon {
   RAYCAST = 'raycast',
   RECTANGLE = 'rectangle',
   SLIDEPAD = 'slidepad',
+  KLACK = 'klack',
 }
 
 export const iconLibrary = {
@@ -33,6 +35,7 @@ export const iconLibrary = {
   [Icon.RAYCAST]: raycast,
   [Icon.RECTANGLE]: rectangle,
   [Icon.SLIDEPAD]: slidepad,
+  [Icon.KLACK]: klack,
 }
 
 export const hiddenBarIcons = [
@@ -53,9 +56,14 @@ export const hiddenBarIcons = [
     link: 'https://www.raycast.com/',
   },
   {
+    icon: iconLibrary[Icon.KLACK],
+    link: 'https://tryklack.com/',
+  },
+  {
     icon: iconLibrary[Icon.ALTTAB],
     link: 'https://github.com/lwouis/alt-tab-macos',
   },
+
   {
     icon: iconLibrary[Icon.SLIDEPAD],
     link: 'https://slidepad.app/',

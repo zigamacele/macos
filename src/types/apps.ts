@@ -4,6 +4,7 @@ export enum App {
   VSCODE = 'VSCode',
   DISCORD = 'Discord',
   BITWARDEN = 'Bitwarden',
+  DOCKER = 'Docker',
   FIGMA = 'Figma',
   OBSIDIAN = 'Obsidian',
   ITERM2 = 'iTerm2',

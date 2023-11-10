@@ -4,6 +4,7 @@ import bin from '@/assets/apps/bin.png'
 import bitwarden from '@/assets/apps/bitwarden.png'
 import chrome from '@/assets/apps/chrome.png'
 import discord from '@/assets/apps/discord.png'
+import docker from '@/assets/apps/docker.png'
 import figma from '@/assets/apps/figma.png'
 import finder from '@/assets/apps/finder.png'
 import iterm2 from '@/assets/apps/iterm2.png'
@@ -17,8 +18,9 @@ export const AppWindowConfig = {
   [App.FINDER]: { width: 1024, height: 576, component: Finder },
   [App.CHROME]: { width: 1366, height: 768, component: Finder },
   [App.BIN]: { width: 1024, height: 576, component: Finder },
-  [App.BITWARDEN]: { width: 1024, height: 576, component: Finder },
   [App.DISCORD]: { width: 1024, height: 576, component: Finder },
+  [App.DOCKER]: { width: 1024, height: 576, component: Finder },
+  [App.BITWARDEN]: { width: 1024, height: 576, component: Finder },
   [App.FIGMA]: { width: 1366, height: 768, component: Finder },
   [App.ITERM2]: { width: 800, height: 600, component: Finder },
   [App.OBSIDIAN]: { width: 1366, height: 768, component: Finder },
@@ -37,6 +39,7 @@ export const AppIcon = {
   [App.OBSIDIAN]: obsidian,
   [App.SPOTIFY]: spotify,
   [App.VSCODE]: vscode,
+  [App.DOCKER]: docker,
 }
 
 export const AppMenubar: Menubar = {
@@ -226,6 +229,11 @@ export const AppMenubar: Menubar = {
   [App.VSCODE]: [
     {
       label: App.VSCODE,
+    },
+  ],
+  [App.DOCKER]: [
+    {
+      label: App.DOCKER,
     },
   ],
 }
