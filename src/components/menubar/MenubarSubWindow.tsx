@@ -1,4 +1,4 @@
-import { SubMenu } from '@/types/apps'
+import { SubMenu, SubMenuType } from '@/types/apps'
 
 interface MenubarSubWindowProps {
   subMenu: SubMenu[] | undefined
@@ -9,7 +9,7 @@ const MenubarSubWindow = ({ subMenu }: MenubarSubWindowProps) => {
     <div className='absolute left-0 top-7 z-50 min-w-max rounded-md border border-black/40 font-normal'>
       <div className='flex flex-col gap-0.5 rounded-md border border-white/10 bg-black/40 px-0.5 py-1 backdrop-blur-2xl'>
         {subMenu?.map((menu) => {
-          if (menu.label === 'hr') {
+          if (menu.type === SubMenuType.SEPARATOR) {
             return <hr className='mx-2 my-0.5 opacity-20' />
           }
 

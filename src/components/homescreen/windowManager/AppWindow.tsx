@@ -17,6 +17,7 @@ const AppWindow = ({ app }: AppWindowProps) => {
   const { width, height, component } = AppWindowConfig[app]
 
   const style = {
+    cursor: 'default',
     border: 'solid 1px rgba(255, 255, 255, 0.45)',
     ...(app === focusedWindow && { zIndex: 30 }),
   }

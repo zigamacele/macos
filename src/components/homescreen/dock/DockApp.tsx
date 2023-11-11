@@ -53,7 +53,10 @@ const DockApp = ({ app, index, hoverIndex, setHoverIndex }: DockAppProps) => {
       <img
         alt={app}
         src={AppIcon[app]}
-        className={cn('h-11 w-11 shrink-0 transition-all', hoverClasses())}
+        className={cn(
+          'h-11 w-11 shrink-0 cursor-pointer transition-all active:opacity-40',
+          hoverClasses(),
+        )}
         onMouseEnter={onAppHover}
         onMouseLeave={onAppLeave}
         onClick={onAppClick}

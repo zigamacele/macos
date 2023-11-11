@@ -28,8 +28,16 @@ interface Menu {
   submenu?: SubMenu[]
 }
 
+export enum SubMenuType {
+  NORMAL = 'NORMAL',
+  SEPARATOR = 'SEPARATOR',
+  CHECKBOX = 'CHECKBOX',
+  RADIO = 'RADIO',
+}
+
 export type SubMenu = {
-  label: string
+  label?: string
+  type?: SubMenuType
   shortcut?: string
   onClick?: () => void
 }
