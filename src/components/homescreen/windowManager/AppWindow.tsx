@@ -1,5 +1,7 @@
 import { Rnd } from 'react-rnd'
 
+import TrafficLights from '@/components/apps/TrafficLights'
+
 import useWindowManager from '@/stores/window_manager-store'
 
 import { AppWindowConfig } from '@/constants/apps'
@@ -36,7 +38,7 @@ const AppWindow = ({ app }: AppWindowProps) => {
 
   return (
     <Rnd
-      className='rounded'
+      className='relative rounded'
       style={style}
       default={defaultWindowSize}
       onClick={onWindowClick}
@@ -44,7 +46,8 @@ const AppWindow = ({ app }: AppWindowProps) => {
       enableResizing={app === focusedWindow}
       bounds='window'
     >
-      <AppComponent app={app} />
+      <TrafficLights app={app} position='' />
+      <AppComponent />
     </Rnd>
   )
 }
