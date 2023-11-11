@@ -1,6 +1,12 @@
 import apple_logo from '@/assets/icons/apple-logo.svg'
 import battery from '@/assets/icons/battery.svg'
 import control_center from '@/assets/icons/control-center.svg'
+import airdrop from '@/assets/icons/finder/airdrop.png'
+import applications from '@/assets/icons/finder/applications.png'
+import desktop from '@/assets/icons/finder/desktop.png'
+import documents from '@/assets/icons/finder/documents.png'
+import downloads from '@/assets/icons/finder/downloads.png'
+import user from '@/assets/icons/finder/user.png'
 import aldente from '@/assets/icons/hiddenbar/aldente.png'
 import alttab from '@/assets/icons/hiddenbar/alttab.png'
 import commandx from '@/assets/icons/hiddenbar/commandx.png'
@@ -69,3 +75,12 @@ export const hiddenBarIcons = [
     link: 'https://slidepad.app/',
   },
 ]
+
+export const finderIcons = {
+  AIRDROP: airdrop,
+  DESKTOP: desktop,
+  DOWNLOADS: downloads,
+  USER: user,
+  DOCUMENTS: documents,
+  APPLICATIONS: applications,
+}
