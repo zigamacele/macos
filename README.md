@@ -4,15 +4,14 @@
 
 # macOS
 
-desktop clone in the browser
+desktop environment for the web
 
 </div>
 
-[//]: # '## Technologies'
-[//]: #
-[//]: # '- [TypeScript](https://www.typescriptlang.org/)'
-[//]: # '- [React](https://reactjs.org/)'
-[//]: # '- [Vite](https://vitejs.dev/)'
-[//]: # '- [TailwindCSS](https://tailwindcss.com/)'
-[//]: # '- [Zustand](https://github.com/pmndrs/zustand)'
-[//]: # '- [Framer Motion](https://www.framer.com/motion/)'
+<!-- ## Technologies
+
+[TypeScript](https://www.typescriptlang.org/)
+[React](https://reactjs.org/)
+[Vite](https://vitejs.dev/)
+[TailwindCSS](https://tailwindcss.com/)
+[Zustand](https://github.com/pmndrs/zustand) -->
