@@ -76,11 +76,20 @@ export const hiddenBarIcons = [
   },
 ]
 
+export enum FinderMenu {
+  AIRDROP = 'AirDrop',
+  DESKTOP = 'Desktop',
+  DOWNLOADS = 'Downloads',
+  USER = 'User',
+  DOCUMENTS = 'Documents',
+  APPLICATIONS = 'Applications',
+}
+
 export const finderIcons = {
-  AIRDROP: airdrop,
-  DESKTOP: desktop,
-  DOWNLOADS: downloads,
-  USER: user,
-  DOCUMENTS: documents,
-  APPLICATIONS: applications,
+  [FinderMenu.AIRDROP]: airdrop,
+  [FinderMenu.DESKTOP]: desktop,
+  [FinderMenu.DOWNLOADS]: downloads,
+  [FinderMenu.USER]: user,
+  [FinderMenu.DOCUMENTS]: documents,
+  [FinderMenu.APPLICATIONS]: applications,
 }

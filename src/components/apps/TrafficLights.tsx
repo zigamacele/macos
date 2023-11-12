@@ -15,7 +15,9 @@ const TrafficLights = ({ app, position }: TrafficLightsProps) => {
   const { manageApp, focusedWindow } = useWindowManager()
   const isAppFocused = focusedWindow === app
   return (
-    <section className={cn('group absolute left-2 top-2 flex gap-2', position)}>
+    <section
+      className={cn('group absolute left-3 top-4 z-30 flex gap-2', position)}
+    >
       <TrafficLight
         icon='Cross2Icon'
         color='bg-red-500'

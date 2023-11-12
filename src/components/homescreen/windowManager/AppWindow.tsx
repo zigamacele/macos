@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Rnd } from 'react-rnd'
 
 import TrafficLights from '@/components/apps/TrafficLights'
@@ -16,9 +17,11 @@ const AppWindow = ({ app }: AppWindowProps) => {
   const { focusedWindow, setFocusWindow } = useWindowManager()
   const { width, height, component } = AppWindowConfig[app]
 
+  const isAppFocused = useMemo(() => focusedWindow === app, [focusedWindow])
+
   const style = {
     cursor: 'default',
-    border: 'solid 1px rgba(255, 255, 255, 0.45)',
+    border: 'solid 1px rgba(255, 255, 255, 0.25)',
     ...(app === focusedWindow && { zIndex: 30 }),
   }
 
@@ -47,8 +50,8 @@ const AppWindow = ({ app }: AppWindowProps) => {
       enableResizing={app === focusedWindow}
       bounds='window'
     >
-      <TrafficLights app={app} position='' />
-      <AppComponent />
+      <TrafficLights app={app} />
+      <AppComponent isAppFocused={isAppFocused} />
     </Rnd>
   )
 }
