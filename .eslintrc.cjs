@@ -24,6 +24,7 @@ module.exports = {
     'react-refresh',
     'unused-imports',
     'simple-import-sort',
+    '@typescript-eslint',
   ],
   settings: {
     react: {
@@ -39,7 +40,7 @@ module.exports = {
     },
   },
   rules: {
-    "@typescript-eslint/no-dynamic-delete": "off",
+    '@typescript-eslint/no-dynamic-delete': 'off',
     'import/no-unresolved': 'error',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
@@ -71,7 +72,7 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react/display-name': 0,
     '@typescript-eslint/no-unused-vars': 2,
-    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-explicit-any': 2,
     'tailwindcss/no-custom-classname': 0,
     'simple-import-sort/exports': 1,
     'simple-import-sort/imports': [
