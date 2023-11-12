@@ -42,7 +42,7 @@ const AppWindow = ({ app }: AppWindowProps) => {
 
   return (
     <Rnd
-      className='relative rounded'
+      className='relative rounded-lg'
       style={style}
       default={defaultWindowSize}
       onClick={onWindowClick}

@@ -1,4 +1,5 @@
 import Finder from '@/components/apps/Finder'
+import Placeholder from '@/components/apps/Placeholder'
 
 import bin from '@/assets/apps/bin.png'
 import bitwarden from '@/assets/apps/bitwarden.png'
@@ -16,16 +17,16 @@ import { App, Menubar, SubMenuType } from '@/types/apps'
 
 export const AppWindowConfig = {
   [App.FINDER]: { width: 1024, height: 576, component: Finder },
-  [App.CHROME]: { width: 1366, height: 768, component: Finder },
-  [App.BIN]: { width: 1024, height: 576, component: Finder },
-  [App.DISCORD]: { width: 1024, height: 576, component: Finder },
-  [App.DOCKER]: { width: 1024, height: 576, component: Finder },
-  [App.BITWARDEN]: { width: 1024, height: 576, component: Finder },
-  [App.FIGMA]: { width: 1366, height: 768, component: Finder },
-  [App.ITERM2]: { width: 800, height: 600, component: Finder },
-  [App.OBSIDIAN]: { width: 1366, height: 768, component: Finder },
-  [App.SPOTIFY]: { width: 1024, height: 576, component: Finder },
-  [App.VSCODE]: { width: 1366, height: 768, component: Finder },
+  [App.CHROME]: { width: 1366, height: 768, component: Placeholder },
+  [App.BIN]: { width: 1024, height: 576, component: Placeholder },
+  [App.DISCORD]: { width: 1024, height: 576, component: Placeholder },
+  [App.DOCKER]: { width: 1024, height: 576, component: Placeholder },
+  [App.BITWARDEN]: { width: 1024, height: 576, component: Placeholder },
+  [App.FIGMA]: { width: 1366, height: 768, component: Placeholder },
+  [App.ITERM2]: { width: 800, height: 600, component: Placeholder },
+  [App.OBSIDIAN]: { width: 1366, height: 768, component: Placeholder },
+  [App.SPOTIFY]: { width: 1024, height: 576, component: Placeholder },
+  [App.VSCODE]: { width: 1366, height: 768, component: Placeholder },
 }
 
 export const AppIcon = {

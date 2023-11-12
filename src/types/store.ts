@@ -1,4 +1,12 @@
+import { FinderMenu } from '@/constants/icons'
+
 import { App, ManageAppAction } from './apps'
+
+export enum SystemScreen {
+  BOOT = 'BOOT',
+  LOGIN = 'LOGIN',
+  HOME = 'HOME',
+}
 
 export interface SystemStore {
   screen: SystemScreen
@@ -14,8 +22,7 @@ export interface WindowManagerStore {
   manageApp: (app: App, action: ManageAppAction) => void
 }
 
-export enum SystemScreen {
-  BOOT = 'BOOT',
-  LOGIN = 'LOGIN',
-  HOME = 'HOME',
+export interface FinderStore {
+  focusedMenu: FinderMenu
+  setFocusMenu: (focusedMenu: FinderMenu) => void
 }
