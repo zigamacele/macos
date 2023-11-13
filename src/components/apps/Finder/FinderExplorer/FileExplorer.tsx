@@ -1,5 +1,5 @@
 const FileExplorer = () => {
-  return <div>FileExplorer</div>
+  return <section></section>
 }
 
 export default FileExplorer

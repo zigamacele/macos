@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer
       className={cn(
-        'row-span-1 flex h-6 items-center justify-center gap-1 self-end rounded-br-lg border-b border-black bg-neutral-800 px-4 text-center text-xs',
+        'row-span-1 flex items-center justify-center gap-1 self-end rounded-br-lg border-b border-black bg-neutral-800 px-4 py-0.5 text-center text-xs',
         isAppFocused(currentApp) && 'bg-neutral-700/60',
       )}
     >

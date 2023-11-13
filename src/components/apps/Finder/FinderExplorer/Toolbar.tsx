@@ -16,7 +16,7 @@ const Toolbar = () => {
   return (
     <header
       className={cn(
-        'row-span-1 flex h-14 items-center justify-between rounded-tr-lg border-b border-black bg-neutral-800 px-4',
+        'row-span-1 flex items-center justify-between rounded-tr-lg border-b border-black bg-neutral-800 px-4',
         isAppFocused(currentApp) && 'bg-neutral-700/60',
       )}
     >
