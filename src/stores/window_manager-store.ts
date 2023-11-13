@@ -13,6 +13,7 @@ const useWindowManager = create<WindowManagerStore>()((set, get) => ({
     const openWindows = get().openWindows
     return minimizedWindows.includes(app) || openWindows.includes(app)
   },
+  isAppFocused: (app: App): boolean => get().focusedWindow === app,
   manageApp: (app: App, action: ManageAppAction) => {
     const currentFocusedWindow = get().focusedWindow
 

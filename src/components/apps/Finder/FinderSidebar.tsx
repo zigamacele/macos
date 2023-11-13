@@ -1,26 +1,27 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
+import { CurrentAppContext } from '@/components/homescreen/windowManager/AppWindow'
 import Icon from '@/components/Icon'
+
+import useWindowManager from '@/stores/window_manager-store'
 
 import { FinderMenu } from '@/constants/icons'
 import { cn } from '@/utils/styles'
 
 import MenuItem from './MenuItem'
 
-interface FinderSidebarProps {
-  isAppFocused: boolean
-}
-
-const FinderSidebar = ({ isAppFocused }: FinderSidebarProps) => {
+const FinderSidebar = () => {
   const [hideFavorites, setHideFavorites] = useState(false)
+  const { isAppFocused } = useWindowManager()
+  const currentApp = useContext(CurrentAppContext)
   return (
     <section
       className={cn(
         'col-span-1 flex flex-col gap-0.5 rounded-l-lg border-r border-black bg-neutral-800 px-4 py-12 backdrop-blur-3xl',
-        isAppFocused && 'bg-neutral-800/60',
+        isAppFocused(currentApp) && 'bg-neutral-800/60',
       )}
     >
-      <div className={cn(!isAppFocused && 'opacity-40')}>
+      <div className={cn(!isAppFocused(currentApp) && 'opacity-40')}>
         <div className='group flex justify-between opacity-30'>
           <span className='ml-2.5 overflow-hidden text-ellipsis text-[11px] font-medium'>
             Favourites

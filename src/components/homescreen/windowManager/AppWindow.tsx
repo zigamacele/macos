@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { createContext } from 'react'
 import { Rnd } from 'react-rnd'
 
 import TrafficLights from '@/components/apps/TrafficLights'
@@ -12,12 +12,11 @@ import { App } from '@/types/apps'
 interface AppWindowProps {
   app: App
 }
+export const CurrentAppContext = createContext<App>(App.FINDER)
 
 const AppWindow = ({ app }: AppWindowProps) => {
   const { focusedWindow, setFocusWindow } = useWindowManager()
   const { width, height, component } = AppWindowConfig[app]
-
-  const isAppFocused = useMemo(() => focusedWindow === app, [focusedWindow])
 
   const style = {
     cursor: 'default',
@@ -41,18 +40,20 @@ const AppWindow = ({ app }: AppWindowProps) => {
   const AppComponent = component
 
   return (
-    <Rnd
-      className='relative rounded-lg'
-      style={style}
-      default={defaultWindowSize}
-      onClick={onWindowClick}
-      disableDragging={app !== focusedWindow}
-      enableResizing={app === focusedWindow}
-      bounds='window'
-    >
-      <TrafficLights app={app} />
-      <AppComponent isAppFocused={isAppFocused} />
-    </Rnd>
+    <CurrentAppContext.Provider value={app}>
+      <Rnd
+        className='relative rounded-lg'
+        style={style}
+        default={defaultWindowSize}
+        onClick={onWindowClick}
+        disableDragging={app !== focusedWindow}
+        enableResizing={app === focusedWindow}
+        bounds='window'
+      >
+        <TrafficLights app={app} />
+        <AppComponent />
+      </Rnd>
+    </CurrentAppContext.Provider>
   )
 }
 

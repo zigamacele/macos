@@ -19,6 +19,7 @@ export interface WindowManagerStore {
   openWindows: App[]
   setFocusWindow: (focusedWindow: App) => void
   isAppOpen: (app: App) => boolean
+  isAppFocused: (app: App) => boolean
   manageApp: (app: App, action: ManageAppAction) => void
 }
 
