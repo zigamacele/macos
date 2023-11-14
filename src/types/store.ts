@@ -1,5 +1,6 @@
 import { FinderMenu } from '@/constants/icons'
 
+import { FileStructure } from './../constants/file-structure'
 import { App, ManageAppAction } from './apps'
 
 export enum SystemScreen {
@@ -24,6 +25,10 @@ export interface WindowManagerStore {
 }
 
 export interface FinderStore {
+  route: FileStructure
+  currentDirectory: string[]
   focusedMenu: FinderMenu
   setFocusMenu: (focusedMenu: FinderMenu) => void
+  updateCurrentDirectory: (currentDirectory: string) => void
+  goBackDirectory: () => void
 }
