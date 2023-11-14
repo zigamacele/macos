@@ -6,9 +6,7 @@ import { username } from '@/constants/system'
 
 import { FinderStore } from '@/types/store'
 
-const useFinderStore = create<FinderStore>()((set, get) => ({
-  route: fileStructure['root']?.children?.['users']?.children?.[username]
-    ?.children as FileStructure,
+const initialState = {
   currentDirectory: [
     'root',
     'children',
@@ -17,26 +15,84 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
     username,
     'children',
   ],
+}
+
+export enum Direction {
+  FORWARD = 'FORWARD',
+  BACKWARD = 'BACKWARD',
+}
+
+const useFinderStore = create<FinderStore>()((set, get) => ({
+  route: fileStructure['root']?.children?.['users']?.children?.[username]
+    ?.children as FileStructure,
+  currentDirectory: initialState.currentDirectory,
+  directoryHistory: [initialState.currentDirectory],
+  directoryHistoryIndex: 0,
   focusedMenu: FinderMenu.USER,
   setFocusMenu: (focusedMenu: FinderMenu) => set(() => ({ focusedMenu })),
-  updateCurrentDirectory: (directory: string) => {
-    const currentDirectory = [...get().currentDirectory, directory, 'children']
+  updateCurrentDirectory: (directory, direction) => {
+    const {
+      currentDirectory: currentStateDirectory,
+      directoryHistory,
+      directoryHistoryIndex,
+    } = get()
+    let currentDirectory: string[]
+    if (Array.isArray(directory)) {
+      currentDirectory = directory
+    } else {
+      currentDirectory = [...currentStateDirectory, directory, 'children']
+    }
+
     let route = fileStructure
     currentDirectory.forEach((dir) => {
       route = route[dir] as unknown as FileStructure
     })
-    set(() => ({ route, currentDirectory }))
+
+    if (!direction && directoryHistoryIndex !== directoryHistory.length - 1) {
+      set(() => ({
+        route,
+        currentDirectory,
+        directoryHistory: directoryHistory.slice(0, directoryHistoryIndex + 2),
+        directoryHistoryIndex: directoryHistoryIndex + 1,
+      }))
+      return
+    }
+
+    if (!direction && directoryHistoryIndex === directoryHistory.length - 1) {
+      set(() => ({
+        directoryHistory: [...directoryHistory, currentDirectory],
+      }))
+    }
+
+    set(() => ({
+      route,
+      currentDirectory,
+      directoryHistoryIndex: directoryHistory.length,
+    }))
   },
   goBackDirectory: () => {
-    const stateCurrentDirectory = get().currentDirectory
-    if (stateCurrentDirectory.length <= 2) return
+    const { directoryHistory, directoryHistoryIndex, updateCurrentDirectory } =
+      get()
+    if (!directoryHistoryIndex) return
 
-    const currentDirectory = stateCurrentDirectory.slice(0, -2)
-    let route = fileStructure
-    currentDirectory.forEach((dir) => {
-      route = route[dir] as unknown as FileStructure
-    })
-    set(() => ({ route, currentDirectory }))
+    updateCurrentDirectory(
+      directoryHistory[directoryHistoryIndex - 1] as string[],
+      Direction.BACKWARD,
+    )
+
+    set(() => ({ directoryHistoryIndex: directoryHistoryIndex - 1 }))
+  },
+  goForwardDirectory: () => {
+    const { directoryHistory, directoryHistoryIndex, updateCurrentDirectory } =
+      get()
+    if (directoryHistoryIndex === directoryHistory.length - 1) return
+
+    updateCurrentDirectory(
+      directoryHistory[directoryHistoryIndex + 1] as string[],
+      Direction.FORWARD,
+    )
+
+    set(() => ({ directoryHistoryIndex: directoryHistoryIndex + 1 }))
   },
 }))
 

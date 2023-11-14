@@ -49,7 +49,19 @@ export const fileStructure: FileStructure = {
               documents: {
                 name: 'Documents',
                 type: FileType.FOLDER,
-                children: {},
+                children: {
+                  obsidian: {
+                    name: 'Obsidian',
+                    type: FileType.FOLDER,
+                    children: {
+                      test: {
+                        name: 'Test',
+                        type: FileType.FOLDER,
+                        children: {},
+                      },
+                    },
+                  },
+                },
               },
               downloads: {
                 name: 'Downloads',

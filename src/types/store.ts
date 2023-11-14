@@ -1,3 +1,5 @@
+import { Direction } from '@/stores/finder-store'
+
 import { FinderMenu } from '@/constants/icons'
 
 import { FileStructure } from './../constants/file-structure'
@@ -27,8 +29,14 @@ export interface WindowManagerStore {
 export interface FinderStore {
   route: FileStructure
   currentDirectory: string[]
+  directoryHistoryIndex: number
+  directoryHistory: string[][]
   focusedMenu: FinderMenu
   setFocusMenu: (focusedMenu: FinderMenu) => void
-  updateCurrentDirectory: (currentDirectory: string) => void
+  updateCurrentDirectory: (
+    currentDirectory: string | string[],
+    direction?: Direction,
+  ) => void
   goBackDirectory: () => void
+  goForwardDirectory: () => void
 }
