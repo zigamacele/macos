@@ -1,1 +1,1 @@
-export const username = 'zigamacele'
+export const username: string = 'zigamacele'
