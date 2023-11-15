@@ -3,6 +3,7 @@ import { create } from 'zustand'
 import { FileStructure, fileStructure } from '@/constants/file-structure'
 import { FinderMenu } from '@/constants/icons'
 import { username } from '@/constants/system'
+import { capitalize } from '@/utils/format'
 
 import { FinderStore } from '@/types/store'
 
@@ -28,8 +29,8 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
   currentDirectory: initialState.currentDirectory,
   directoryHistory: [initialState.currentDirectory],
   directoryHistoryIndex: 0,
-  focusedMenu: FinderMenu.USER,
-  setFocusMenu: (focusedMenu: FinderMenu) => set(() => ({ focusedMenu })),
+  focusedDirectory: FinderMenu.USER,
+  setFocusedDirectory: (focusedDirectory) => set(() => ({ focusedDirectory })),
   updateCurrentDirectory: (directory, direction) => {
     const {
       currentDirectory: currentStateDirectory,
@@ -75,24 +76,28 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
       get()
     if (!directoryHistoryIndex) return
 
-    updateCurrentDirectory(
-      directoryHistory[directoryHistoryIndex - 1] as string[],
-      Direction.BACKWARD,
-    )
+    const directory = directoryHistory[directoryHistoryIndex - 1] as string[]
 
-    set(() => ({ directoryHistoryIndex: directoryHistoryIndex - 1 }))
+    updateCurrentDirectory(directory, Direction.BACKWARD)
+
+    set(() => ({
+      directoryHistoryIndex: directoryHistoryIndex - 1,
+      focusedDirectory: capitalize(directory[directory.length - 2]),
+    }))
   },
   goForwardDirectory: () => {
     const { directoryHistory, directoryHistoryIndex, updateCurrentDirectory } =
       get()
     if (directoryHistoryIndex === directoryHistory.length - 1) return
 
-    updateCurrentDirectory(
-      directoryHistory[directoryHistoryIndex + 1] as string[],
-      Direction.FORWARD,
-    )
+    const directory = directoryHistory[directoryHistoryIndex + 1] as string[]
 
-    set(() => ({ directoryHistoryIndex: directoryHistoryIndex + 1 }))
+    updateCurrentDirectory(directory, Direction.FORWARD)
+
+    set(() => ({
+      directoryHistoryIndex: directoryHistoryIndex + 1,
+      focusedDirectory: capitalize(directory[directory.length - 2]),
+    }))
   },
 }))
 

@@ -1,9 +1,13 @@
 import useFinderStore from '@/stores/finder-store'
 
+import { capitalize } from '@/utils/format'
+
 const FileExplorer = () => {
-  const { route, updateCurrentDirectory } = useFinderStore()
+  const { route, updateCurrentDirectory, setFocusedDirectory } =
+    useFinderStore()
 
   const onDirectoryClick = (directory: string) => {
+    setFocusedDirectory(capitalize(directory))
     updateCurrentDirectory(directory)
   }
 

@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import useFinderStore from '@/stores/finder-store'
 
 import { finderIcons, FinderMenu } from '@/constants/icons'
@@ -9,18 +11,25 @@ interface MenuItemProps {
 }
 
 const MenuItem = ({ menu }: MenuItemProps) => {
-  const { focusedMenu, setFocusMenu } = useFinderStore()
+  const { focusedDirectory, setFocusedDirectory } = useFinderStore()
   const menuAsKey = menu.toUpperCase() as keyof typeof FinderMenu
   const menuLabel =
     FinderMenu[menuAsKey] === FinderMenu.USER ? username : FinderMenu[menuAsKey]
-  const handleClick = () => setFocusMenu(FinderMenu[menuAsKey])
+  const handleClick = () => setFocusedDirectory(FinderMenu[menuAsKey])
+
+  const heighlightMenuItem = useMemo(() => {
+    return (
+      focusedDirectory === (FinderMenu[menuAsKey] as string) ||
+      (menuLabel === username && focusedDirectory === username)
+    )
+  }, [focusedDirectory, menuLabel, menuAsKey])
 
   return (
     <div
       key={menu}
       className={cn(
         'flex items-center gap-0.5 rounded-md px-1',
-        focusedMenu === FinderMenu[menuAsKey] && 'bg-white/10',
+        heighlightMenuItem && 'bg-white/10',
       )}
       onClick={handleClick}
     >

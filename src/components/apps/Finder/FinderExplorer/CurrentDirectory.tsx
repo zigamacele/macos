@@ -4,10 +4,12 @@ import { FinderMenu } from '@/constants/icons'
 import { username } from '@/constants/system'
 
 const CurrentDirectory = () => {
-  const { focusedMenu } = useFinderStore()
+  const { focusedDirectory } = useFinderStore()
   return (
     <span className='font-semibold opacity-80'>
-      {focusedMenu === FinderMenu.USER ? username : focusedMenu}
+      {focusedDirectory === (FinderMenu.USER as string)
+        ? username
+        : focusedDirectory}
     </span>
   )
 }
