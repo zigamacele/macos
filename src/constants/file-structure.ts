@@ -1,9 +1,17 @@
+import folder from '@/assets/apps/finder/folder.png'
+import root from '@/assets/apps/finder/root.png'
+
 import { FinderMenu } from './icons'
 import { username } from './system'
 
-enum FileType {
+export enum FileType {
   ROOT = 'ROOT',
   FOLDER = 'FOLDER',
+}
+
+export const FileIcons = {
+  [FileType.ROOT]: { icon: root, styles: 'h-3 w-3' },
+  [FileType.FOLDER]: { icon: folder, styles: 'h-3.5 w-3.5' },
 }
 
 export interface FileStructure {
@@ -35,7 +43,7 @@ export const finderSidebarPaths = {
 export const fileStructure: FileStructure = {
   root: {
     name: 'Macintosh HD',
-    type: FileType.FOLDER,
+    type: FileType.ROOT,
     children: {
       applications: {
         name: 'Applications',
