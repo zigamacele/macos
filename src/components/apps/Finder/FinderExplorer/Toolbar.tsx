@@ -9,6 +9,7 @@ import { cn } from '@/utils/styles'
 
 import CurrentDirectory from './CurrentDirectory'
 import DirectoryNavigation from './DirectoryNavigation'
+import SortingBar from './Toolbar/SortingBar'
 
 const Toolbar = () => {
   const { isAppFocused } = useWindowManager()
@@ -30,10 +31,7 @@ const Toolbar = () => {
           <Icon icon='MagnifyingGlassIcon' className='h-5 w-5 opacity-60' />
         </div>
       </div>
-      <div className='flex w-full items-center justify-between border-b border-white/10 px-8 py-1 text-[11px] font-semibold'>
-        <span className='opacity-80'>Name</span>
-        <Icon icon='ChevronDownIcon' className='opacity-60' />
-      </div>
+      <SortingBar />
     </header>
   )
 }

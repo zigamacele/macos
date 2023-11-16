@@ -8,7 +8,8 @@ import {
 } from '@/constants/file-structure'
 
 const Breadcrumbs = () => {
-  const { currentDirectory, updateCurrentDirectory } = useFinderStore()
+  const { currentDirectory, updateCurrentDirectory, setFocusedDirectory } =
+    useFinderStore()
   let route = fileStructure as unknown as FileStructure
 
   return (
@@ -18,20 +19,22 @@ const Breadcrumbs = () => {
         if (directory === 'children') return null
         const { name, type } = route
         const typeAsFileType = type as unknown as FileType
+        const nameAsString = name as unknown as string
 
         return (
           <div
             className='flex items-center gap-1.5'
-            onClick={() =>
+            onClick={() => {
               updateCurrentDirectory(currentDirectory.slice(0, index + 2))
-            }
+              setFocusedDirectory(nameAsString)
+            }}
           >
             {!!index && <span className='text-[9px] opacity-80'>{'>'}</span>}
             <img
               src={FileIcons[typeAsFileType].icon}
               className={FileIcons[typeAsFileType].styles}
             />
-            <span className='opacity-60'>{name as unknown as string}</span>
+            <span className='opacity-60'>{nameAsString}</span>
           </div>
         )
       })}
