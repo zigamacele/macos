@@ -6,18 +6,23 @@ import useWindowManager from '@/stores/window_manager-store'
 
 import { cn } from '@/utils/styles'
 
+import Breadcrumbs from './Footer/Breadcrumbs'
+
 const Footer = () => {
   const { isAppFocused } = useWindowManager()
   const currentApp = useContext(CurrentAppContext)
   return (
-    <footer
-      className={cn(
-        'row-span-1 flex items-center justify-center gap-1 self-end rounded-br-lg border-b border-black bg-neutral-800 px-4 py-1 text-center text-xs',
-        isAppFocused(currentApp) && 'bg-neutral-700/60',
-      )}
-    >
-      <span className='opacity-60'>? items,</span>
-      <span className='opacity-60'>655,55 GB available</span>
+    <footer>
+      <Breadcrumbs />
+      <div
+        className={cn(
+          'row-span-1 flex items-center justify-center gap-1 self-end rounded-br-lg border-t border-black bg-neutral-800 px-4 py-1 text-center text-xs',
+          isAppFocused(currentApp) && 'bg-neutral-700/60',
+        )}
+      >
+        <span className='opacity-40'>? items,</span>
+        <span className='opacity-40'>655,55 GB available</span>
+      </div>
     </footer>
   )
 }
