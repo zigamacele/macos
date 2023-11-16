@@ -1,3 +1,4 @@
+import { FinderMenu } from './icons'
 import { username } from './system'
 
 enum FileType {
@@ -11,6 +12,24 @@ export interface FileStructure {
     type: FileType
     children?: FileStructure
   }
+}
+
+const userRoute = [
+  'root',
+  'children',
+  'users',
+  'children',
+  username,
+  'children',
+]
+
+export const finderSidebarPaths = {
+  [FinderMenu.AIRDROP]: ['root', 'children'],
+  [FinderMenu.USER]: [...userRoute],
+  [FinderMenu.DESKTOP]: [...userRoute, 'desktop', 'children'],
+  [FinderMenu.DOWNLOADS]: [...userRoute, 'downloads', 'children'],
+  [FinderMenu.DOCUMENTS]: [...userRoute, 'documents', 'children'],
+  [FinderMenu.APPLICATIONS]: ['root', 'children', 'applications', 'children'],
 }
 
 export const fileStructure: FileStructure = {

@@ -2,8 +2,10 @@ import { useMemo } from 'react'
 
 import useFinderStore from '@/stores/finder-store'
 
+import { finderSidebarPaths } from '@/constants/file-structure'
 import { finderIcons, FinderMenu } from '@/constants/icons'
 import { username } from '@/constants/system'
+import { capitalize } from '@/utils/format'
 import { cn } from '@/utils/styles'
 
 interface MenuItemProps {
@@ -11,11 +13,16 @@ interface MenuItemProps {
 }
 
 const MenuItem = ({ menu }: MenuItemProps) => {
-  const { focusedDirectory, setFocusedDirectory } = useFinderStore()
+  const { focusedDirectory, setFocusedDirectory, updateCurrentDirectory } =
+    useFinderStore()
   const menuAsKey = menu.toUpperCase() as keyof typeof FinderMenu
   const menuLabel =
     FinderMenu[menuAsKey] === FinderMenu.USER ? username : FinderMenu[menuAsKey]
-  const handleClick = () => setFocusedDirectory(FinderMenu[menuAsKey])
+  const handleClick = () => {
+    if (FinderMenu[menuAsKey] === FinderMenu.AIRDROP) return
+    updateCurrentDirectory(finderSidebarPaths[FinderMenu[menuAsKey]])
+    setFocusedDirectory(capitalize(FinderMenu[menuAsKey]))
+  }
 
   const heighlightMenuItem = useMemo(() => {
     return (
