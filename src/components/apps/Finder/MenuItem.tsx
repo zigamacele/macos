@@ -35,7 +35,7 @@ const MenuItem = ({ menu }: MenuItemProps) => {
     <div
       key={menu}
       className={cn(
-        'flex items-center gap-0.5 rounded-md px-1',
+        'flex cursor-pointer items-center gap-0.5 rounded-md px-1',
         heighlightMenuItem && 'bg-white/10',
       )}
       onClick={handleClick}
