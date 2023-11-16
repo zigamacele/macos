@@ -2,6 +2,7 @@ import { useContext } from 'react'
 
 import { CurrentAppContext } from '@/components/homescreen/windowManager/AppWindow'
 
+import useFinderStore from '@/stores/finder-store'
 import useWindowManager from '@/stores/window_manager-store'
 
 import { cn } from '@/utils/styles'
@@ -11,6 +12,7 @@ import Breadcrumbs from './Footer/Breadcrumbs'
 const Footer = () => {
   const { isAppFocused } = useWindowManager()
   const currentApp = useContext(CurrentAppContext)
+  const { route } = useFinderStore()
   return (
     <footer>
       <Breadcrumbs />
@@ -20,7 +22,7 @@ const Footer = () => {
           isAppFocused(currentApp) && 'bg-neutral-700/60',
         )}
       >
-        <span className='opacity-40'>? items,</span>
+        <span className='opacity-40'>{Object.keys(route).length} items,</span>
         <span className='opacity-40'>655,55 GB available</span>
       </div>
     </footer>
