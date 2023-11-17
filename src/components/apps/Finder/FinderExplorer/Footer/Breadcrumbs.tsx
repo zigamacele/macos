@@ -23,6 +23,7 @@ const Breadcrumbs = () => {
 
         return (
           <div
+            key={index}
             className='flex items-center gap-1.5'
             onClick={() => {
               updateCurrentDirectory(currentDirectory.slice(0, index + 2))

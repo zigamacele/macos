@@ -30,7 +30,6 @@ const FileExplorer = () => {
   const selectedFocusedWindow = (file: string | undefined) => {
     const focusedWindow = isAppFocused(currentApp)
     const isFileFocused = selectedFile === file
-
     if (focusedWindow && isFileFocused) {
       return 'bg-blue-700'
     }
@@ -45,22 +44,29 @@ const FileExplorer = () => {
     <section className='mx-2 text-[13px]'>
       {Object.keys(route).map((key) => {
         const fileType = route[key]?.type as FileType
+        const isFolder = fileType === FileType.FOLDER
         return (
           <div
             key={key}
             className={cn(
               'flex items-center gap-1 rounded',
               selectedFocusedWindow(route[key]?.name),
+              route[key]?.extension && 'pl-4',
             )}
             onClick={() => setSelectFile(route[key]?.name as string)}
-            onDoubleClick={() => onDirectoryClick(key)}
+            onDoubleClick={() => isFolder && onDirectoryClick(key)}
           >
-            <Icon icon='ChevronRightIcon' className='h-3 w-3 opacity-60' />
+            {isFolder && (
+              <Icon icon='ChevronRightIcon' className='h-3 w-3 opacity-60' />
+            )}
             <img
               src={FileIcons[fileType].icon}
               className={FileIcons[fileType].styles}
             />
-            <span className='ml-0.5 opacity-90'>{route[key]?.name}</span>
+            <span className='ml-0.5 opacity-90'>
+              {route[key]?.name}
+              {route[key]?.extension && `.${route[key]?.extension}`}
+            </span>
           </div>
         )
       })}

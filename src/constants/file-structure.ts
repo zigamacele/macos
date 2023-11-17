@@ -1,5 +1,6 @@
 import folder from '@/assets/apps/finder/folder.png'
 import root from '@/assets/apps/finder/root.png'
+import text from '@/assets/apps/finder/text.png'
 
 import { FinderMenu } from './icons'
 import { username } from './system'
@@ -7,17 +8,20 @@ import { username } from './system'
 export enum FileType {
   ROOT = 'ROOT',
   FOLDER = 'FOLDER',
+  TEXT = 'TEXT',
 }
 
 export const FileIcons = {
   [FileType.ROOT]: { icon: root, styles: 'h-3 w-3' },
   [FileType.FOLDER]: { icon: folder, styles: 'h-3.5 w-3.5' },
+  [FileType.TEXT]: { icon: text, styles: 'h-3.5 w-3.5' },
 }
 
 export interface FileStructure {
   [key: string]: {
     name: string
     type: FileType
+    extension?: string
     children?: FileStructure
   }
 }
@@ -87,6 +91,31 @@ export const fileStructure: FileStructure = {
                         children: {},
                       },
                     },
+                  },
+                  projects: {
+                    name: 'Projects',
+                    type: FileType.FOLDER,
+                    children: {},
+                  },
+                  resume: {
+                    name: 'Resume',
+                    type: FileType.TEXT,
+                    extension: 'pdf',
+                  },
+                  starters: {
+                    name: 'Starters',
+                    type: FileType.FOLDER,
+                    children: {},
+                  },
+                  work: {
+                    name: 'Work',
+                    type: FileType.FOLDER,
+                    children: {},
+                  },
+                  contribute: {
+                    name: 'Contribute',
+                    type: FileType.FOLDER,
+                    children: {},
                   },
                 },
               },
