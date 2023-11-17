@@ -31,8 +31,10 @@ export interface FinderStore {
   currentDirectory: string[]
   directoryHistoryIndex: number
   directoryHistory: string[][]
+  selectedFile: string | null
   focusedDirectory: string | FinderMenu
   setFocusedDirectory: (focusedDirectory: string) => void
+  setSelectFile: (selectedFile: string | null) => void
   updateCurrentDirectory: (
     currentDirectory: string | string[],
     direction?: Direction,

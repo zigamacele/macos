@@ -29,9 +29,13 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
   currentDirectory: initialState.currentDirectory,
   directoryHistory: [initialState.currentDirectory],
   directoryHistoryIndex: 0,
+  selectedFile: null,
   focusedDirectory: FinderMenu.USER,
   setFocusedDirectory: (focusedDirectory) => set(() => ({ focusedDirectory })),
+  setSelectFile: (selectedFile) => set(() => ({ selectedFile })),
   updateCurrentDirectory: (directory, direction) => {
+    set(() => ({ selectedFile: null }))
+
     const {
       currentDirectory: currentStateDirectory,
       directoryHistory,
