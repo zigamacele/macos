@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
   let route = fileStructure as unknown as FileStructure
 
   return (
-    <div className='row-span-1 flex items-center gap-2 self-end rounded-br-lg border-t border-white/10 bg-[#1F1F20] px-4 py-1 text-center text-xs'>
+    <div className='row-span-1 flex items-center gap-2 self-end rounded-br-lg border-t border-white/10 bg-finder-background px-4 py-1 text-center text-xs'>
       {currentDirectory.map((directory, index) => {
         route = route[directory] as unknown as FileStructure
         if (directory === 'children') return null

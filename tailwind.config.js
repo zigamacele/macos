@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import colors from './src/constants/colors'
+
 export default {
   darkMode: ['class'],
   content: [
@@ -9,6 +11,7 @@ export default {
   ],
   theme: {
     extend: {
+      colors: colors,
       screen: ['100vh', '100dvh'],
     },
   },

@@ -100,7 +100,11 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
 
     set(() => ({
       directoryHistoryIndex: directoryHistoryIndex + 1,
-      focusedDirectory: capitalize(directory[directory.length - 2]),
+      focusedDirectory: capitalize(
+        directory[directory.length - 2] === 'root'
+          ? 'Macintosh HD'
+          : directory[directory.length - 2],
+      ),
     }))
   },
 }))
