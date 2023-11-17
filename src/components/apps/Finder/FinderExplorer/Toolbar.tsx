@@ -19,7 +19,7 @@ const Toolbar = () => {
       <div
         className={cn(
           'row-span-1 flex items-center justify-between rounded-tr-lg border-b border-black bg-neutral-800 px-4 py-3.5',
-          isAppFocused(currentApp) && 'bg-neutral-700/60',
+          isAppFocused(currentApp) && 'bg-finder-surface',
         )}
       >
         <div className='flex items-center gap-4'>

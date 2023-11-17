@@ -19,7 +19,7 @@ const Footer = () => {
       <div
         className={cn(
           'row-span-1 flex items-center justify-center gap-1 self-end rounded-br-lg border-t border-black bg-neutral-800 px-4 py-1 text-center text-xs',
-          isAppFocused(currentApp) && 'bg-neutral-700/60',
+          isAppFocused(currentApp) && 'bg-finder-surface',
         )}
       >
         <span className='opacity-40'>{Object.keys(route).length} items,</span>
