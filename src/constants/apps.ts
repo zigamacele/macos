@@ -1,3 +1,4 @@
+import Chrome from '@/components/apps/Chrome'
 import Finder from '@/components/apps/Finder'
 import Placeholder from '@/components/apps/Placeholder'
 
@@ -17,7 +18,7 @@ import { App, Menubar, SubMenuType } from '@/types/apps'
 
 export const AppWindowConfig = {
   [App.FINDER]: { width: 1024, height: 576, component: Finder },
-  [App.CHROME]: { width: 1366, height: 768, component: Placeholder },
+  [App.CHROME]: { width: 1366, height: 768, component: Chrome },
   [App.BIN]: { width: 1024, height: 576, component: Placeholder },
   [App.DISCORD]: { width: 1024, height: 576, component: Placeholder },
   [App.DOCKER]: { width: 1024, height: 576, component: Placeholder },
