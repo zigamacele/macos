@@ -1,3 +1,6 @@
+import extensions from '@/assets/apps/chrome/extensions.png'
+import liver from '@/assets/apps/chrome/liver.png'
+import profile from '@/assets/apps/chrome/profile.jpeg'
 import apple_logo from '@/assets/icons/apple-logo.svg'
 import battery from '@/assets/icons/battery.svg'
 import control_center from '@/assets/icons/control-center.svg'
@@ -92,4 +95,10 @@ export const finderIcons = {
   [FinderMenu.USER]: user,
   [FinderMenu.DOCUMENTS]: documents,
   [FinderMenu.APPLICATIONS]: applications,
+}
+
+export const chromeIcons = {
+  PROFILE: profile,
+  LIVER: liver,
+  EXTENSIONS: extensions,
 }
