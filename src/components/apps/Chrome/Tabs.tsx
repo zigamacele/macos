@@ -16,7 +16,7 @@ const Tabs = () => {
   return (
     <section
       className={cn(
-        'flex h-10 items-end rounded-t-lg bg-zinc-800 pl-24 text-[13px]',
+        'flex h-11 items-end rounded-t-lg bg-zinc-800 pl-24 text-[13px]',
         appNotInFocus && 'bg-chrome-surface',
       )}
     >
@@ -27,7 +27,7 @@ const Tabs = () => {
             appNotInFocus && 'bg-chrome-navigation',
           )}
         >
-          <div className='flex items-center gap-1.5'>
+          <div className='flex items-center gap-1'>
             <img src={tab.icon} className='h-6 w-6' />
             <span>{tab.title}</span>
           </div>

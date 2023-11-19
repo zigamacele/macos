@@ -6,6 +6,8 @@ import Icon from '@/components/Icon'
 import useWindowManager from '@/stores/window_manager-store'
 
 import { chromeIcons } from '@/constants/icons'
+import { GITHUB, LIVER } from '@/constants/links'
+import { openInNewWindow } from '@/utils/global'
 import { cn } from '@/utils/styles'
 
 import Tabs from './Tabs'
@@ -48,20 +50,24 @@ const ChromeNavigation = () => {
             value='https://gacharevenue.com/'
           />
         </div>
-        <img
-          src={chromeIcons.LIVER}
-          className='h-5 w-5 rounded-full object-cover'
-        />
-        <img
-          src={chromeIcons.EXTENSIONS}
-          className={cn(
-            'h-6 w-6 rounded-full object-cover',
-            appNotInFocus && 'opacity-40',
-          )}
-        />
+        <div className='flex items-center gap-2 rounded-full border border-zinc-700 px-2 pr-3 transition-colors hover:border-white/20'>
+          <img
+            src={chromeIcons.LIVER}
+            className='h-5 w-5 cursor-pointer rounded-full object-cover transition-opacity hover:opacity-60'
+            onClick={() => openInNewWindow(LIVER)}
+          />
+          <img
+            src={chromeIcons.EXTENSIONS}
+            className={cn(
+              'h-6 w-6 rounded-full object-cover',
+              appNotInFocus && 'opacity-40',
+            )}
+          />
+        </div>
         <img
           src={chromeIcons.PROFILE}
-          className='h-5 w-5 rounded-full object-cover'
+          className='h-5 w-5 cursor-pointer rounded-full object-cover transition-opacity hover:opacity-60'
+          onClick={() => openInNewWindow(GITHUB)}
         />
         <Icon
           icon='DotsVerticalIcon'
