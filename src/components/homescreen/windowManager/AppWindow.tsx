@@ -50,7 +50,7 @@ const AppWindow = ({ app }: AppWindowProps) => {
         enableResizing={app === focusedWindow}
         bounds='window'
       >
-        <TrafficLights app={app} />
+        <TrafficLights />
         <AppComponent />
       </Rnd>
     </CurrentAppContext.Provider>

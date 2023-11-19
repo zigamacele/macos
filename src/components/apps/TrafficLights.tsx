@@ -1,19 +1,21 @@
+import { useContext } from 'react'
+
 import useWindowManager from '@/stores/window_manager-store'
 
 import { cn } from '@/utils/styles'
 
 import TrafficLight from './TrafficLights/TrafficLight'
+import { CurrentAppContext } from '../homescreen/windowManager/AppWindow'
 
-import { App, ManageAppAction } from '@/types/apps'
+import { ManageAppAction } from '@/types/apps'
 
 interface TrafficLightsProps {
-  app: App
   position?: string
 }
 
-const TrafficLights = ({ app, position }: TrafficLightsProps) => {
-  const { manageApp, focusedWindow } = useWindowManager()
-  const isAppFocused = focusedWindow === app
+const TrafficLights = ({ position }: TrafficLightsProps) => {
+  const { manageApp } = useWindowManager()
+  const currentApp = useContext(CurrentAppContext)
   return (
     <section
       className={cn(
@@ -25,21 +27,18 @@ const TrafficLights = ({ app, position }: TrafficLightsProps) => {
         icon='Cross2Icon'
         color='bg-red-500'
         className='group-hover:bg-red-500'
-        isAppFocused={isAppFocused}
-        onClick={() => manageApp(app, ManageAppAction.CLOSE)}
+        onClick={() => manageApp(currentApp, ManageAppAction.CLOSE)}
       />
       <TrafficLight
         icon='MinusIcon'
         color='bg-yellow-500'
         className='group-hover:bg-yellow-500'
-        isAppFocused={isAppFocused}
-        onClick={() => manageApp(app, ManageAppAction.MINIMIZE)}
+        onClick={() => manageApp(currentApp, ManageAppAction.MINIMIZE)}
       />
       <TrafficLight
         icon='HeightIcon'
         color='bg-green-500'
         className='-rotate-45 group-hover:bg-green-500'
-        isAppFocused={isAppFocused}
       />
     </section>
   )
