@@ -3,7 +3,7 @@ import { Direction } from '@/stores/finder-store'
 import { FinderMenu } from '@/constants/icons'
 
 import { FileStructure } from './../constants/file-structure'
-import { App, ManageAppAction } from './apps'
+import { App, ChromeTab, ManageAppAction } from './apps'
 
 export enum SystemScreen {
   BOOT = 'BOOT',
@@ -17,8 +17,9 @@ export interface SystemStore {
 }
 
 export interface ChromeStore {
-  focusedTab: number | null
-  setFocusedTab: (focusedTab: number | null) => void
+  tabs: ChromeTab[]
+  focusedTab: number
+  setFocusedTab: (focusedTab: number) => void
 }
 
 export interface WindowManagerStore {

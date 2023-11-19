@@ -41,3 +41,9 @@ export type SubMenu = {
   shortcut?: string
   onClick?: () => void
 }
+
+export interface ChromeTab {
+  icon: string
+  title: string
+  url: string
+}
