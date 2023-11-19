@@ -16,6 +16,11 @@ export interface SystemStore {
   setScreen: (screen: SystemScreen) => void
 }
 
+export interface ChromeStore {
+  focusedTab: number | null
+  setFocusedTab: (focusedTab: number | null) => void
+}
+
 export interface WindowManagerStore {
   focusedWindow: App
   minimizedWindows: App[]
