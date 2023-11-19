@@ -3,6 +3,10 @@ const colors = {
     background: '#1F1F20',
     surface: '#373636',
   },
+  chrome: {
+    surface: '#3D4043',
+    navigation: '#35363A',
+  },
 }
 
 export default colors

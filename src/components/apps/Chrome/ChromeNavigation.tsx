@@ -1,16 +1,42 @@
+import { useContext } from 'react'
+
+import { CurrentAppContext } from '@/components/homescreen/windowManager/AppWindow'
 import Icon from '@/components/Icon'
 
+import useWindowManager from '@/stores/window_manager-store'
+
 import { chromeIcons } from '@/constants/icons'
+import { cn } from '@/utils/styles'
 
 import Tabs from './Tabs'
 
 const ChromeNavigation = () => {
+  const { isAppFocused } = useWindowManager()
+  const currentApp = useContext(CurrentAppContext)
+  const appNotInFocus = !isAppFocused(currentApp)
   return (
     <nav>
       <Tabs />
-      <section className='flex h-9 items-center gap-3 bg-zinc-700 px-3'>
-        <Icon icon='ArrowLeftIcon' className='h-[22px] w-[22px] shrink-0' />
-        <Icon icon='ArrowRightIcon' className='h-[22px] w-[22px] shrink-0' />
+      <section
+        className={cn(
+          'flex h-9 items-center gap-3 bg-zinc-700 px-3',
+          appNotInFocus && 'bg-chrome-navigation',
+        )}
+      >
+        <Icon
+          icon='ArrowLeftIcon'
+          className={cn(
+            'h-[22px] w-[22px] shrink-0',
+            appNotInFocus && 'opacity-40',
+          )}
+        />
+        <Icon
+          icon='ArrowRightIcon'
+          className={cn(
+            'h-[22px] w-[22px] shrink-0',
+            appNotInFocus && 'opacity-40',
+          )}
+        />
         <div className='relative w-full'>
           <Icon
             icon='LockClosedIcon'
@@ -28,13 +54,22 @@ const ChromeNavigation = () => {
         />
         <img
           src={chromeIcons.EXTENSIONS}
-          className='h-6 w-6 rounded-full object-cover'
+          className={cn(
+            'h-6 w-6 rounded-full object-cover',
+            appNotInFocus && 'opacity-40',
+          )}
         />
         <img
           src={chromeIcons.PROFILE}
           className='h-5 w-5 rounded-full object-cover'
         />
-        <Icon icon='DotsVerticalIcon' className='h-[22px] w-[22px] shrink-0' />
+        <Icon
+          icon='DotsVerticalIcon'
+          className={cn(
+            'h-[22px] w-[22px] shrink-0',
+            appNotInFocus && 'opacity-40',
+          )}
+        />
       </section>
     </nav>
   )
