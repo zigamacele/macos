@@ -14,6 +14,16 @@ const useChromeStore = create<ChromeStore>()((set) => ({
   ],
   focusedTab: 0,
   setFocusedTab: (focusedTab) => set(() => ({ focusedTab })),
+  addTab: (tab) =>
+    set((state) => ({
+      tabs: [...state.tabs, tab],
+      focusedTab: state.tabs.length,
+    })),
+  removeTab: (tab) =>
+    set((state) => ({
+      tabs: state.tabs.filter((t) => t !== tab),
+      focusedTab: state.tabs.length - 1,
+    })),
 }))
 
 export default useChromeStore
