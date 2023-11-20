@@ -16,9 +16,7 @@ const LoginScreen = () => {
   const [loginInput, setLoginInput] = useState('')
   const { setScreen } = useSystemStore()
 
-  const loginAttempt = (
-    keyboardEvent?: React.KeyboardEvent<HTMLInputElement>,
-  ) => {
+  const loginAttempt = (keyboardEvent?: React.KeyboardEvent) => {
     const isKeyEnter = keyboardEvent?.key === 'Enter'
     const isPasswordValid = loginInput.length
 
@@ -62,7 +60,7 @@ const LoginScreen = () => {
               <Icon
                 icon='ArrowRightIcon'
                 className='absolute right-1.5 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-[1.5px] p-0.5 opacity-60 hover:opacity-100'
-                onClick={loginAttempt}
+                onClick={() => loginAttempt()}
               />
             )}
           </span>

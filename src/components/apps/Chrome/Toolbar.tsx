@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { CurrentAppContext } from '@/components/homescreen/windowManager/AppWindow'
 import Icon from '@/components/Icon'
@@ -7,15 +7,39 @@ import useChromeStore from '@/stores/chrome-store'
 import useWindowManager from '@/stores/window_manager-store'
 
 import { chromeIcons } from '@/constants/icons'
-import { GITHUB, LIVER } from '@/constants/links'
+import { GITHUB, GOOGLE_SEARCH_QUERY, LIVER } from '@/constants/links'
 import { openInNewWindow } from '@/utils/global'
 import { cn } from '@/utils/styles'
 
 const Toolbar = () => {
   const { isAppFocused } = useWindowManager()
-  const { tabs, focusedTab } = useChromeStore()
+  const { tabs, focusedTab, updateTabUrl } = useChromeStore()
   const currentApp = useContext(CurrentAppContext)
   const appNotInFocus = !isAppFocused(currentApp)
+  const [currentTabInput, setCurrentTabInput] = useState(
+    tabs[focusedTab]?.url ?? '',
+  )
+
+  useEffect(() => {
+    setCurrentTabInput(tabs[focusedTab]?.url ?? '')
+  }, [focusedTab])
+
+  const onInputChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentTabInput(e.target.value)
+  }
+  const onEnterPressed = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      const validUrl =
+        /^(https?:\/\/)?([\w-]+(\.[\w-]+)+\/?)([\w\-.~:/?#[\]@!$&'()*+,;=%]*)?$/
+
+      if (validUrl.test(currentTabInput)) {
+        return updateTabUrl(focusedTab, currentTabInput)
+      } else {
+        return updateTabUrl(focusedTab, GOOGLE_SEARCH_QUERY + currentTabInput)
+      }
+    }
+  }
+
   return (
     <section
       className={cn(
@@ -44,8 +68,11 @@ const Toolbar = () => {
         />
         <input
           className='w-full rounded-full bg-zinc-800 py-1 ps-9 text-sm outline-2 focus:outline'
+          placeholder='Search Google'
           type='text'
-          value={tabs[focusedTab]?.url}
+          onChange={onInputChanged}
+          onKeyDown={onEnterPressed}
+          value={currentTabInput}
         />
       </div>
       <div className='flex items-center gap-2 rounded-full border border-zinc-700 px-2 pr-3 transition-colors hover:border-white/20'>
