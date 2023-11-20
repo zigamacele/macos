@@ -34,33 +34,37 @@ const Tabs = () => {
         appNotInFocus && 'bg-chrome-surface',
       )}
     >
-      {tabs.map((tab, index) => (
-        <div
-          key={index}
-          onClick={() => setFocusedTab(index)}
-          className={cn(
-            'flex h-8 w-48 items-center justify-between rounded-t-lg px-2 transition-colors',
-            focusedTab !== index && 'hover:bg-zinc-600',
-            focusedTab === index && 'bg-zinc-700',
-            appNotInFocus && 'bg-chrome-navigation',
-          )}
-        >
-          <div className='flex items-center gap-1'>
-            <img src={tab.icon} className='h-6 w-6' />
-            <span>{tab.title}</span>
-          </div>
-          <Icon
-            icon='Cross2Icon'
+      {tabs.map((tab, index) => {
+        const isTabFocused = focusedTab === index
+        return (
+          <div
+            key={index}
+            onClick={() => setFocusedTab(index)}
             className={cn(
-              'h-4 w-4 cursor-pointer rounded-full p-0.5 hover:bg-white/20',
-              appNotInFocus && 'opacity-60',
+              'flex h-8 w-48 items-center justify-between rounded-t-lg px-2 transition-colors',
+              !isTabFocused && 'hover:bg-zinc-600',
+              isTabFocused && 'bg-zinc-700',
+              appNotInFocus && isTabFocused && 'bg-chrome-navigation',
+              appNotInFocus && !isTabFocused && 'bg-chrome-surface',
             )}
-            onClick={(event?: React.MouseEvent) =>
-              handleRemoveTab(index, event)
-            }
-          />
-        </div>
-      ))}
+          >
+            <div className='flex items-center gap-1'>
+              <img src={tab.icon} className='h-6 w-6' />
+              <span>{tab.title}</span>
+            </div>
+            <Icon
+              icon='Cross2Icon'
+              className={cn(
+                'h-4 w-4 cursor-pointer rounded-full p-0.5 hover:bg-white/20',
+                appNotInFocus && 'opacity-60',
+              )}
+              onClick={(event?: React.MouseEvent) =>
+                handleRemoveTab(index, event)
+              }
+            />
+          </div>
+        )
+      })}
       <Icon
         icon='PlusIcon'
         className='mb-1 ml-1.5 h-6 w-6 cursor-pointer rounded-full p-1 hover:bg-zinc-600'

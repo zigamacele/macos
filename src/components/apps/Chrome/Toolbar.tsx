@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { CurrentAppContext } from '@/components/homescreen/windowManager/AppWindow'
 import Icon from '@/components/Icon'
 
+import useChromeStore from '@/stores/chrome-store'
 import useWindowManager from '@/stores/window_manager-store'
 
 import { chromeIcons } from '@/constants/icons'
@@ -12,6 +13,7 @@ import { cn } from '@/utils/styles'
 
 const Toolbar = () => {
   const { isAppFocused } = useWindowManager()
+  const { tabs, focusedTab } = useChromeStore()
   const currentApp = useContext(CurrentAppContext)
   const appNotInFocus = !isAppFocused(currentApp)
   return (
@@ -43,7 +45,7 @@ const Toolbar = () => {
         <input
           className='w-full rounded-full bg-zinc-800 py-1 ps-9 text-sm outline-2 focus:outline'
           type='text'
-          value='https://gacharevenue.com/'
+          value={tabs[focusedTab]?.url}
         />
       </div>
       <div className='flex items-center gap-2 rounded-full border border-zinc-700 px-2 pr-3 transition-colors hover:border-white/20'>
