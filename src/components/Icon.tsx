@@ -3,7 +3,7 @@ import * as Icons from '@radix-ui/react-icons'
 interface IconProps {
   icon: string
   className?: string
-  onClick?: () => void
+  onClick?: (event?: React.MouseEvent) => void
 }
 
 const Icon = ({ icon, className, onClick }: IconProps) => {

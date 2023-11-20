@@ -13,12 +13,14 @@ import { ManageAppAction } from '@/types/apps'
 
 const Tabs = () => {
   const { isAppFocused, manageApp } = useWindowManager()
-  const { tabs, removeTab, addTab, focusedTab } = useChromeStore()
+  const { tabs, removeTab, addTab, focusedTab, setFocusedTab } =
+    useChromeStore()
   const currentApp = useContext(CurrentAppContext)
   const appNotInFocus = !isAppFocused(currentApp)
 
-  const handleRemoveTab = (index: number) => {
-    removeTab(tabs[index])
+  const handleRemoveTab = (index: number, event?: React.MouseEvent) => {
+    event?.stopPropagation()
+    removeTab(index)
 
     if (tabs.length === 1) {
       manageApp(currentApp, ManageAppAction.MINIMIZE)
@@ -34,6 +36,8 @@ const Tabs = () => {
     >
       {tabs.map((tab, index) => (
         <div
+          key={index}
+          onClick={() => setFocusedTab(index)}
           className={cn(
             'flex h-8 w-48 items-center justify-between rounded-t-lg px-2 transition-colors',
             focusedTab !== index && 'hover:bg-zinc-600',
@@ -51,7 +55,9 @@ const Tabs = () => {
               'h-4 w-4 cursor-pointer rounded-full p-0.5 hover:bg-white/20',
               appNotInFocus && 'opacity-60',
             )}
-            onClick={() => handleRemoveTab(index)}
+            onClick={(event?: React.MouseEvent) =>
+              handleRemoveTab(index, event)
+            }
           />
         </div>
       ))}

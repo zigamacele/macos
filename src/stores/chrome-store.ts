@@ -19,11 +19,14 @@ const useChromeStore = create<ChromeStore>()((set) => ({
       tabs: [...state.tabs, tab],
       focusedTab: state.tabs.length,
     })),
-  removeTab: (tab) =>
-    set((state) => ({
-      tabs: state.tabs.filter((t) => t !== tab),
-      focusedTab: state.tabs.length - 1,
-    })),
+  removeTab: (index) => {
+    set((state) => {
+      const tabs = [...state.tabs]
+      tabs.splice(index, 1)
+      const focusedTab = index === 0 ? 0 : index - 1
+      return { tabs, focusedTab }
+    })
+  },
 }))
 
 export default useChromeStore
