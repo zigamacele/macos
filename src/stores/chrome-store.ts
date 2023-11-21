@@ -25,7 +25,7 @@ const useChromeStore = create<ChromeStore>()((set) => ({
     set((state) => {
       const tabs = [...state.tabs]
       tabs.splice(index, 1)
-      const focusedTab = index === 0 ? 0 : index - 1
+      const focusedTab = index === 0 ? 0 : tabs.length - 1
       return { tabs, focusedTab }
     })
   },

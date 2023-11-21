@@ -4,7 +4,7 @@ import { ChromeTab } from '@/types/apps'
 
 export const DEFAULT_TAB: ChromeTab = {
   icon: newTabIcon,
-  title: 'New Tab',
+  title: 'Google',
   url: 'https://www.google.com/webhp?igu=1',
 }
 export const GOOGLE_SEARCH_QUERY = 'https://www.google.com/search?igu=1&q='
