@@ -4,6 +4,7 @@ import { FileStructure, fileStructure } from '@/constants/file-structure'
 import { FinderMenu } from '@/constants/icons'
 import { username } from '@/constants/system'
 import { capitalize } from '@/utils/format'
+import { areArraysEqual } from '@/utils/global'
 
 import { FinderStore } from '@/types/store'
 
@@ -43,9 +44,16 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
     } = get()
     let currentDirectory: string[]
     if (Array.isArray(directory)) {
+      if (areArraysEqual(directory, currentStateDirectory)) return
       currentDirectory = directory
     } else {
-      currentDirectory = [...currentStateDirectory, directory, 'children']
+      const newCurrentDirectory = [
+        ...currentStateDirectory,
+        directory,
+        'children',
+      ]
+      if (areArraysEqual(newCurrentDirectory, currentStateDirectory)) return
+      currentDirectory = newCurrentDirectory
     }
 
     let route = fileStructure
