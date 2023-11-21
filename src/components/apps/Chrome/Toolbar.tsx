@@ -8,7 +8,9 @@ import useWindowManager from '@/stores/window_manager-store'
 
 import { chromeIcons } from '@/constants/icons'
 import { GITHUB, GOOGLE_SEARCH_QUERY, LIVER } from '@/constants/links'
+import { formatUrl } from '@/utils/format'
 import { openInNewWindow } from '@/utils/global'
+import { isValidUrl } from '@/utils/regex'
 import { cn } from '@/utils/styles'
 
 const Toolbar = () => {
@@ -29,13 +31,18 @@ const Toolbar = () => {
   }
   const onEnterPressed = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      const validUrl =
-        /^(https?:\/\/)?([\w-]+(\.[\w-]+)+\/?)([\w\-.~:/?#[\]@!$&'()*+,;=%]*)?$/
-
-      if (validUrl.test(currentTabInput)) {
-        return updateTabUrl(focusedTab, currentTabInput)
+      if (isValidUrl(currentTabInput)) {
+        return updateTabUrl(
+          focusedTab,
+          formatUrl(currentTabInput),
+          currentTabInput,
+        )
       } else {
-        return updateTabUrl(focusedTab, GOOGLE_SEARCH_QUERY + currentTabInput)
+        return updateTabUrl(
+          focusedTab,
+          `${currentTabInput} - Google`,
+          GOOGLE_SEARCH_QUERY + currentTabInput,
+        )
       }
     }
   }

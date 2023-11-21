@@ -9,3 +9,8 @@ export const capitalize = (str: string | undefined) => {
 
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+export const formatUrl = (url: string) => {
+  const urlWithoutProtocol = url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+  return url.replace(urlWithoutProtocol, '')
+}

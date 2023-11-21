@@ -29,11 +29,12 @@ const useChromeStore = create<ChromeStore>()((set) => ({
       return { tabs, focusedTab }
     })
   },
-  updateTabUrl: (index: number, url: string) => {
+  updateTabUrl: (index: number, title: string, url: string) => {
     set((state) => {
       const tabs = [...state.tabs]
       const tab = tabs[index]
       if (tab) {
+        tab.title = title
         tab.url = url
       }
       return { tabs }

@@ -22,7 +22,7 @@ export interface ChromeStore {
   setFocusedTab: (focusedTab: number) => void
   addTab: () => void
   removeTab: (index: number) => void
-  updateTabUrl: (index: number, url: string) => void
+  updateTabUrl: (index: number, title: string, url: string) => void
 }
 
 export interface WindowManagerStore {
