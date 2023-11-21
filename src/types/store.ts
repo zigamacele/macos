@@ -48,6 +48,5 @@ export interface FinderStore {
     currentDirectory: string | string[],
     direction?: Direction,
   ) => void
-  goBackDirectory: () => void
-  goForwardDirectory: () => void
+  moveDirectory: (direction: Direction) => void
 }

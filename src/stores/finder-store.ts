@@ -34,6 +34,31 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
   focusedDirectory: FinderMenu.USER,
   setFocusedDirectory: (focusedDirectory) => set(() => ({ focusedDirectory })),
   setSelectFile: (selectedFile) => set(() => ({ selectedFile })),
+  moveDirectory: (direction) => {
+    const { directoryHistory, directoryHistoryIndex, updateCurrentDirectory } =
+      get()
+
+    if (
+      (directoryHistoryIndex === directoryHistory.length - 1 &&
+        direction === Direction.FORWARD) ||
+      (!directoryHistoryIndex && direction === Direction.BACKWARD)
+    ) {
+      return
+    }
+    const directoryHistoryOffset = direction === Direction.BACKWARD ? -1 : 1
+    const directory = directoryHistory[
+      directoryHistoryIndex + directoryHistoryOffset
+    ] as string[]
+    updateCurrentDirectory(directory, direction)
+    set(() => ({
+      directoryHistoryIndex: directoryHistoryIndex + directoryHistoryOffset,
+      focusedDirectory: capitalize(
+        directory[directory.length - 2] === 'root'
+          ? 'Macintosh HD'
+          : directory[directory.length - 2],
+      ),
+    }))
+  },
   updateCurrentDirectory: (directory, direction) => {
     set(() => ({ selectedFile: null }))
 
@@ -81,42 +106,6 @@ const useFinderStore = create<FinderStore>()((set, get) => ({
       route,
       currentDirectory,
       directoryHistoryIndex: directoryHistory.length,
-    }))
-  },
-  goBackDirectory: () => {
-    const { directoryHistory, directoryHistoryIndex, updateCurrentDirectory } =
-      get()
-    if (!directoryHistoryIndex) return
-
-    const directory = directoryHistory[directoryHistoryIndex - 1] as string[]
-
-    updateCurrentDirectory(directory, Direction.BACKWARD)
-
-    set(() => ({
-      directoryHistoryIndex: directoryHistoryIndex - 1,
-      focusedDirectory: capitalize(
-        directory[directory.length - 2] === 'root'
-          ? 'Macintosh HD'
-          : directory[directory.length - 2],
-      ),
-    }))
-  },
-  goForwardDirectory: () => {
-    const { directoryHistory, directoryHistoryIndex, updateCurrentDirectory } =
-      get()
-    if (directoryHistoryIndex === directoryHistory.length - 1) return
-
-    const directory = directoryHistory[directoryHistoryIndex + 1] as string[]
-
-    updateCurrentDirectory(directory, Direction.FORWARD)
-
-    set(() => ({
-      directoryHistoryIndex: directoryHistoryIndex + 1,
-      focusedDirectory: capitalize(
-        directory[directory.length - 2] === 'root'
-          ? 'Macintosh HD'
-          : directory[directory.length - 2],
-      ),
     }))
   },
 }))
