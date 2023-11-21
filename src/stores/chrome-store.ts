@@ -2,6 +2,8 @@ import { create } from 'zustand'
 
 import gacharevenueIcon from '@/assets/apps/chrome/tabs/gacharevenue.png'
 
+import { DEFAULT_TAB } from '@/constants/links'
+
 import { ChromeStore } from '@/types/store'
 
 const useChromeStore = create<ChromeStore>()((set) => ({
@@ -14,9 +16,9 @@ const useChromeStore = create<ChromeStore>()((set) => ({
   ],
   focusedTab: 0,
   setFocusedTab: (focusedTab) => set(() => ({ focusedTab })),
-  addTab: (tab) =>
+  addTab: () =>
     set((state) => ({
-      tabs: [...state.tabs, tab],
+      tabs: [...state.tabs, { ...DEFAULT_TAB }],
       focusedTab: state.tabs.length,
     })),
   removeTab: (index) => {

@@ -2,9 +2,9 @@ import newTabIcon from '@/assets/apps/chrome/tabs/tab.png'
 
 import { ChromeTab } from '@/types/apps'
 
-export const DEFAULT_URL: ChromeTab = {
+export const DEFAULT_TAB: ChromeTab = {
   icon: newTabIcon,
-  title: 'Google',
+  title: 'New Tab',
   url: 'https://www.google.com/webhp?igu=1',
 }
 export const GOOGLE_SEARCH_QUERY = 'https://www.google.com/search?igu=1&q='

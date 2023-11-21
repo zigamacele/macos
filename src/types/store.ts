@@ -20,7 +20,7 @@ export interface ChromeStore {
   tabs: ChromeTab[]
   focusedTab: number
   setFocusedTab: (focusedTab: number) => void
-  addTab: (tab: ChromeTab) => void
+  addTab: () => void
   removeTab: (index: number) => void
   updateTabUrl: (index: number, url: string) => void
 }

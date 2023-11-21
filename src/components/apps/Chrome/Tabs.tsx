@@ -6,7 +6,6 @@ import Icon from '@/components/Icon'
 import useChromeStore from '@/stores/chrome-store'
 import useWindowManager from '@/stores/window_manager-store'
 
-import { DEFAULT_URL } from '@/constants/links'
 import { cn } from '@/utils/styles'
 
 import { ManageAppAction } from '@/types/apps'
@@ -24,7 +23,7 @@ const Tabs = () => {
 
     if (tabs.length === 1) {
       manageApp(currentApp, ManageAppAction.MINIMIZE)
-      addTab(DEFAULT_URL)
+      addTab()
     }
   }
   return (
@@ -68,7 +67,7 @@ const Tabs = () => {
       <Icon
         icon='PlusIcon'
         className='mb-1 ml-1.5 h-6 w-6 cursor-pointer rounded-full p-1 hover:bg-zinc-600'
-        onClick={() => addTab(DEFAULT_URL)}
+        onClick={() => addTab()}
       />
     </section>
   )
