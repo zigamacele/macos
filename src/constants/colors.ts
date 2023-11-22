@@ -8,7 +8,7 @@ const colors = {
     navigation: '#35363A',
   },
   discord: {
-    surface: '#242529',
+    surface: '#24252B',
   },
 }
 

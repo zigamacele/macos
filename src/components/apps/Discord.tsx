@@ -9,7 +9,7 @@ const Discord = () => {
       <img src={discordLogo} className='h-36' />
       <div className='flex flex-col items-center gap-2 text-sm'>
         <span className='uppercase italic'>
-          {loadingMessages[randomNumber(0, loadingMessages.length)]}
+          {loadingMessages[randomNumber(0, loadingMessages.length - 1)]}
         </span>
         <span className='animate-pulse text-xs uppercase tracking-wide opacity-40'>
           CONNECTING

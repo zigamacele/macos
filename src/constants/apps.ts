@@ -1,5 +1,6 @@
 import Chrome from '@/components/apps/Chrome'
 import Discord from '@/components/apps/Discord'
+import Figma from '@/components/apps/Figma'
 import Finder from '@/components/apps/Finder'
 import Placeholder from '@/components/apps/Placeholder'
 
@@ -24,7 +25,7 @@ export const AppWindowConfig = {
   [App.DISCORD]: { width: 1024, height: 576, component: Discord },
   [App.DOCKER]: { width: 1024, height: 576, component: Placeholder },
   [App.BITWARDEN]: { width: 1024, height: 576, component: Placeholder },
-  [App.FIGMA]: { width: 1366, height: 768, component: Placeholder },
+  [App.FIGMA]: { width: 1366, height: 768, component: Figma },
   [App.ITERM2]: { width: 800, height: 600, component: Placeholder },
   [App.OBSIDIAN]: { width: 1366, height: 768, component: Placeholder },
   [App.SPOTIFY]: { width: 1024, height: 576, component: Placeholder },
