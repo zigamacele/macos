@@ -7,6 +7,9 @@ const colors = {
     surface: '#3D4043',
     navigation: '#35363A',
   },
+  discord: {
+    surface: '#242529',
+  },
 }
 
 export default colors
