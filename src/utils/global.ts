@@ -6,3 +6,7 @@ export const openInNewWindow = (url: string) => {
 export const areArraysEqual = (a: string[], b: string[]) => {
   return isEqual(a, b)
 }
+
+export const randomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
