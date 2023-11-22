@@ -329,6 +329,65 @@ export const AppMenubar: Menubar = {
       ],
     },
   ],
+  [App.DISCORD]: [
+    {
+      label: App.DISCORD,
+      submenu: [
+        { label: 'About Discord' },
+        { label: 'Check for Updates…' },
+        { label: 'Acknowledgements' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Settings...', shortcut: '⌘ ,' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Services' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Hide Discord', shortcut: '⌘ H' },
+        { label: 'Hide Others' },
+        { label: 'Show all' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Quit', shortcut: '⌘ Q' },
+      ],
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        { label: 'Undo', shortcut: '⌘ Z' },
+        { label: 'Redo' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Cut', shortcut: '⌘ X' },
+        { label: 'Copy', shortcut: '⌘ C' },
+        { label: 'Paste', shortcut: '⌘ V' },
+        { label: 'Select All', shortcut: '⌘ A' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Show Clipboard' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'AutoFill' },
+        { label: 'Start Dictation...' },
+        { label: 'Emoji & Symbols' },
+      ],
+    },
+    {
+      label: 'View',
+      submenu: [
+        { label: 'Reload', shortcut: '⌘ R' },
+        { label: 'Toggle Full Screen', shortcut: '⌘ F' },
+      ],
+    },
+    {
+      label: 'Window',
+      submenu: [
+        { label: 'Minimise', shortcut: '⌘ M' },
+        { label: 'Zoom' },
+        { label: 'Close', shortcut: '⌘ W' },
+        { type: SubMenuType.SEPARATOR },
+        { label: 'Bring All to Front' },
+      ],
+    },
+    {
+      label: 'Help',
+      submenu: [{ label: 'Discord Help' }],
+    },
+  ],
   [App.BIN]: [
     {
       label: App.BIN,
@@ -337,11 +396,6 @@ export const AppMenubar: Menubar = {
   [App.BITWARDEN]: [
     {
       label: App.BITWARDEN,
-    },
-  ],
-  [App.DISCORD]: [
-    {
-      label: App.DISCORD,
     },
   ],
   [App.FIGMA]: [
