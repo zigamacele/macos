@@ -12,3 +12,6 @@ export const GOOGLE_SEARCH_QUERY = 'https://www.google.com/search?igu=1&q='
 export const GITHUB = 'https://github.com/zigamacele'
 export const LIVER =
   'https://chromewebstore.google.com/detail/liver/pjnhlmepkmjikjjmbaiabncnhcbkphfh?hl=en'
+
+export const FIGMA_FILE_VIEWER =
+  'https://www.figma.com/embed?embed_host=macos-zigamacele&url='

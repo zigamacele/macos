@@ -47,3 +47,8 @@ export interface ChromeTab {
   title: string
   url: string
 }
+
+export interface FigmaProject {
+  title: string
+  url: null | string
+}

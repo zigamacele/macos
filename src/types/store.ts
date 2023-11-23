@@ -3,7 +3,7 @@ import { Direction } from '@/stores/finder-store'
 import { FinderMenu } from '@/constants/icons'
 
 import { FileStructure } from './../constants/file-structure'
-import { App, ChromeTab, ManageAppAction } from './apps'
+import { App, ChromeTab, FigmaProject, ManageAppAction } from './apps'
 
 export enum SystemScreen {
   BOOT = 'BOOT',
@@ -14,6 +14,13 @@ export enum SystemScreen {
 export interface SystemStore {
   screen: SystemScreen
   setScreen: (screen: SystemScreen) => void
+}
+
+export interface FigmaStore {
+  projects: FigmaProject[]
+  currentProject: null | number
+  setCurrentProject: (currentProject: null | number) => void
+  closeProject: (projectIndex: number) => void
 }
 
 export interface ChromeStore {
