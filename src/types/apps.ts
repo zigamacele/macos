@@ -20,6 +20,8 @@ export interface AppConfig {
   width: number
   height: number
   disabled?: boolean
+  minWidth?: number
+  minHeight?: number
   component: () => JSX.Element
 }
 

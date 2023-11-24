@@ -16,7 +16,9 @@ export const CurrentAppContext = createContext<App>(App.FINDER)
 
 const AppWindow = ({ app }: AppWindowProps) => {
   const { focusedWindow, setFocusWindow } = useWindowManager()
-  const { width, height, component } = AppWindowConfig[app] as AppConfig
+  const { width, height, component, minHeight, minWidth } = AppWindowConfig[
+    app
+  ] as AppConfig
 
   const style = {
     cursor: 'default',
@@ -46,6 +48,8 @@ const AppWindow = ({ app }: AppWindowProps) => {
         style={style}
         default={defaultWindowSize}
         onClick={onWindowClick}
+        minWidth={minWidth}
+        minHeight={minHeight}
         disableDragging={app !== focusedWindow}
         enableResizing={app === focusedWindow}
         bounds='window'

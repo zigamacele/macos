@@ -18,16 +18,37 @@ import vscode from '@/assets/apps/vscode.png'
 
 import { App, AppsConfig, Menubar, SubMenuType } from '@/types/apps'
 
+const defaultMinWidthHeight = {
+  minWidth: 650,
+  minHeight: 400,
+}
+
 export const AppWindowConfig: AppsConfig = {
-  [App.FINDER]: { width: 1024, height: 576, component: Finder },
-  [App.CHROME]: { width: 1366, height: 768, component: Chrome },
+  [App.FINDER]: {
+    width: 1024,
+    height: 576,
+    ...defaultMinWidthHeight,
+    component: Finder,
+  },
+  [App.CHROME]: {
+    width: 1366,
+    height: 768,
+    ...defaultMinWidthHeight,
+    component: Chrome,
+  },
   [App.BIN]: {
     width: 1024,
     height: 576,
     disabled: true,
     component: Placeholder,
   },
-  [App.DISCORD]: { width: 1024, height: 576, component: Discord },
+  [App.DISCORD]: {
+    width: 1024,
+    height: 576,
+    minWidth: 300,
+    minHeight: 300,
+    component: Discord,
+  },
   [App.DOCKER]: {
     width: 1024,
     height: 576,
@@ -40,7 +61,12 @@ export const AppWindowConfig: AppsConfig = {
     disabled: true,
     component: Placeholder,
   },
-  [App.FIGMA]: { width: 1366, height: 768, component: Figma },
+  [App.FIGMA]: {
+    width: 1366,
+    height: 768,
+    ...defaultMinWidthHeight,
+    component: Figma,
+  },
   [App.ITERM2]: {
     width: 800,
     height: 600,
