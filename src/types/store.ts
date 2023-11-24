@@ -18,9 +18,10 @@ export interface SystemStore {
 
 export interface FigmaStore {
   projects: FigmaProject[]
-  currentProject: null | number
-  setCurrentProject: (currentProject: null | number) => void
+  currentProject: number
+  setCurrentProject: (currentProject: number) => void
   addProject: () => void
+  updateCurrentProject: (url: string) => void
   closeProject: (projectIndex: number) => void
 }
 

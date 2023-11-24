@@ -1,5 +1,7 @@
 import { create } from 'zustand'
 
+import { DEFAULT_PROJECT } from '@/constants/links'
+
 import { FigmaStore } from '@/types/store'
 
 const initialState = {
@@ -21,25 +23,26 @@ const useFigmaStore = create<FigmaStore>()((set) => ({
   setCurrentProject: (currentProject) => set(() => ({ currentProject })),
   addProject: () =>
     set((state) => ({
-      projects: [
-        ...state.projects,
-        {
-          title: 'Project',
-          url: null,
-        },
-      ],
+      projects: [...state.projects, { ...DEFAULT_PROJECT }],
       currentProject: state.projects.length,
     })),
+  updateCurrentProject: (url) => {
+    set((state) => {
+      const projects = [...state.projects]
+      // @ts-expect-error object is possibly 'undefined'
+      projects[state.currentProject].url = url
+      return { projects }
+    })
+  },
   closeProject: (projectIndex) => {
     set((state) => {
       const projects = [...state.projects]
       projects.splice(projectIndex, 1)
-      let currentProject
-      if (projectIndex === 0) {
-        currentProject = null
-      } else {
-        currentProject = projects.length - 1
+      if (projects.length === 0) {
+        projects.push({ ...DEFAULT_PROJECT })
       }
+      const currentProject = projects.length - 1
+
       return { projects, currentProject }
     })
   },

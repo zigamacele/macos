@@ -8,7 +8,7 @@ import Icon from '../Icon'
 
 const Figma = () => {
   const { projects, currentProject } = useFigmaStore()
-  const showIframe = currentProject !== null && projects[currentProject]?.url
+  const showIframe = projects[currentProject]?.url
 
   return (
     <div className='h-full w-full rounded-lg bg-neutral-900'>

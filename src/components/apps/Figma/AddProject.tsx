@@ -1,6 +1,31 @@
+import { useState } from 'react'
+
 import Icon from '@/components/Icon'
 
+import useFigmaStore from '@/stores/figma-store'
+
+import { isValidFigmaProjectUrl } from '@/utils/regex'
+import { cn } from '@/utils/styles'
+
 const AddProject = () => {
+  const [userInput, setUserInput] = useState('')
+  const [isValidFigmaUrl, setIsValidFigmaUrl] = useState(false)
+  const { updateCurrentProject } = useFigmaStore()
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isValidFigmaUrl = isValidFigmaProjectUrl(e.target.value)
+    setUserInput(e.target.value)
+    if (isValidFigmaUrl) {
+      setIsValidFigmaUrl(true)
+      return
+    }
+    setIsValidFigmaUrl(false)
+  }
+
+  const handleOpenProject = () => {
+    updateCurrentProject(userInput)
+  }
+
   return (
     <section className='absolute left-1/2 top-1/2 flex w-1/3 -translate-x-1/2 -translate-y-1/2 flex-col gap-3.5 rounded bg-neutral-800 p-3 drop-shadow-lg'>
       <span className='text-xs'>Open Project</span>
@@ -13,9 +38,18 @@ const AddProject = () => {
         <input
           type='text'
           placeholder='Figma Project URL'
+          value={userInput}
+          onChange={handleInputChange}
           className='focus: h-8 w-full rounded border border-white/20 bg-transparent px-2 text-xs text-white/80 placeholder:text-xs placeholder:text-white/40 focus:outline focus:ring-0'
         />
-        <button className='rounded bg-neutral-600 px-2 text-xs font-medium text-neutral-800'>
+        <button
+          disabled={!isValidFigmaUrl}
+          onClick={handleOpenProject}
+          className={cn(
+            'rounded bg-blue-400 px-2 text-xs font-medium text-neutral-800 active:opacity-60 disabled:bg-neutral-600',
+            isValidFigmaUrl,
+          )}
+        >
           Open
         </button>
       </div>
