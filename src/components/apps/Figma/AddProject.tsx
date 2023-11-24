@@ -2,10 +2,12 @@ import { useState } from 'react'
 
 import Icon from '@/components/Icon'
 
-import useFigmaStore from '@/stores/figma-store'
+import useFigmaStore, { initialState } from '@/stores/figma-store'
 
 import { isValidFigmaProjectUrl } from '@/utils/regex'
 import { cn } from '@/utils/styles'
+
+import { FigmaProject } from '@/types/apps'
 
 const AddProject = () => {
   const [userInput, setUserInput] = useState('')
@@ -24,6 +26,12 @@ const AddProject = () => {
 
   const handleOpenProject = () => {
     updateCurrentProject(userInput)
+  }
+
+  const handleExampleClick = (project: FigmaProject) => {
+    if (!project.url) return
+    setUserInput(project.url)
+    setIsValidFigmaUrl(true)
   }
 
   return (
@@ -55,10 +63,16 @@ const AddProject = () => {
       </div>
       <hr className='opacity-20' />
       <div className='flex gap-5'>
-        <div className='flex cursor-pointer items-center gap-1 text-xs text-blue-400 hover:opacity-80'>
-          <Icon icon='Link2Icon' className='h-4 w-4' />
-          <p>Project 1</p>
-        </div>
+        {initialState.projects.map((project) => (
+          <div
+            key={project.title}
+            onClick={() => handleExampleClick(project)}
+            className='flex cursor-pointer items-center gap-1 text-xs text-blue-400 hover:opacity-80'
+          >
+            <Icon icon='Link2Icon' className='h-4 w-4' />
+            <p>{project.title}</p>
+          </div>
+        ))}
       </div>
     </section>
   )

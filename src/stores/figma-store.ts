@@ -4,7 +4,7 @@ import { DEFAULT_PROJECT } from '@/constants/links'
 
 import { FigmaStore } from '@/types/store'
 
-const initialState = {
+export const initialState = {
   projects: [
     {
       title: 'Personal Project - pixiv',
