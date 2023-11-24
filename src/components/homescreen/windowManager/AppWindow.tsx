@@ -7,7 +7,7 @@ import useWindowManager from '@/stores/window_manager-store'
 
 import { AppWindowConfig } from '@/constants/apps'
 
-import { App } from '@/types/apps'
+import { App, AppConfig } from '@/types/apps'
 
 interface AppWindowProps {
   app: App
@@ -16,7 +16,7 @@ export const CurrentAppContext = createContext<App>(App.FINDER)
 
 const AppWindow = ({ app }: AppWindowProps) => {
   const { focusedWindow, setFocusWindow } = useWindowManager()
-  const { width, height, component } = AppWindowConfig[app]
+  const { width, height, component } = AppWindowConfig[app] as AppConfig
 
   const style = {
     cursor: 'default',

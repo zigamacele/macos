@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import useWindowManager from '@/stores/window_manager-store'
 
-import { AppIcon } from '@/constants/apps'
+import { AppIcon, AppWindowConfig } from '@/constants/apps'
 import { cn } from '@/utils/styles'
 
 import { App, ManageAppAction } from '@/types/apps'
@@ -56,6 +56,7 @@ const DockApp = ({ app, index, hoverIndex, setHoverIndex }: DockAppProps) => {
         className={cn(
           'h-11 w-11 shrink-0 cursor-pointer transition-all active:opacity-40 active:grayscale',
           hoverClasses(),
+          AppWindowConfig[app]?.disabled && 'grayscale',
         )}
         onMouseEnter={onAppHover}
         onMouseLeave={onAppLeave}

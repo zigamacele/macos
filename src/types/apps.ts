@@ -12,6 +12,17 @@ export enum App {
   BIN = 'Bin',
 }
 
+export interface AppsConfig {
+  [key: string]: AppConfig
+}
+
+export interface AppConfig {
+  width: number
+  height: number
+  disabled?: boolean
+  component: () => JSX.Element
+}
+
 export enum ManageAppAction {
   OPEN = 'OPEN',
   CLOSE = 'CLOSE',

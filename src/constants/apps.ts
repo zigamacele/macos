@@ -16,20 +16,55 @@ import obsidian from '@/assets/apps/obsidian.png'
 import spotify from '@/assets/apps/spotify.png'
 import vscode from '@/assets/apps/vscode.png'
 
-import { App, Menubar, SubMenuType } from '@/types/apps'
+import { App, AppsConfig, Menubar, SubMenuType } from '@/types/apps'
 
-export const AppWindowConfig = {
+export const AppWindowConfig: AppsConfig = {
   [App.FINDER]: { width: 1024, height: 576, component: Finder },
   [App.CHROME]: { width: 1366, height: 768, component: Chrome },
-  [App.BIN]: { width: 1024, height: 576, component: Placeholder },
+  [App.BIN]: {
+    width: 1024,
+    height: 576,
+    disabled: true,
+    component: Placeholder,
+  },
   [App.DISCORD]: { width: 1024, height: 576, component: Discord },
-  [App.DOCKER]: { width: 1024, height: 576, component: Placeholder },
-  [App.BITWARDEN]: { width: 1024, height: 576, component: Placeholder },
+  [App.DOCKER]: {
+    width: 1024,
+    height: 576,
+    disabled: true,
+    component: Placeholder,
+  },
+  [App.BITWARDEN]: {
+    width: 1024,
+    height: 576,
+    disabled: true,
+    component: Placeholder,
+  },
   [App.FIGMA]: { width: 1366, height: 768, component: Figma },
-  [App.ITERM2]: { width: 800, height: 600, component: Placeholder },
-  [App.OBSIDIAN]: { width: 1366, height: 768, component: Placeholder },
-  [App.SPOTIFY]: { width: 1024, height: 576, component: Placeholder },
-  [App.VSCODE]: { width: 1366, height: 768, component: Placeholder },
+  [App.ITERM2]: {
+    width: 800,
+    height: 600,
+    disabled: true,
+    component: Placeholder,
+  },
+  [App.OBSIDIAN]: {
+    width: 1366,
+    height: 768,
+    disabled: true,
+    component: Placeholder,
+  },
+  [App.SPOTIFY]: {
+    width: 1024,
+    height: 576,
+    disabled: true,
+    component: Placeholder,
+  },
+  [App.VSCODE]: {
+    width: 1366,
+    height: 768,
+    disabled: true,
+    component: Placeholder,
+  },
 }
 
 export const AppIcon = {
