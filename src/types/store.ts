@@ -20,6 +20,7 @@ export interface FigmaStore {
   projects: FigmaProject[]
   currentProject: null | number
   setCurrentProject: (currentProject: null | number) => void
+  addProject: () => void
   closeProject: (projectIndex: number) => void
 }
 

@@ -19,11 +19,27 @@ const initialState = {
 const useFigmaStore = create<FigmaStore>()((set) => ({
   ...initialState,
   setCurrentProject: (currentProject) => set(() => ({ currentProject })),
+  addProject: () =>
+    set((state) => ({
+      projects: [
+        ...state.projects,
+        {
+          title: 'Project',
+          url: null,
+        },
+      ],
+      currentProject: state.projects.length,
+    })),
   closeProject: (projectIndex) => {
     set((state) => {
       const projects = [...state.projects]
       projects.splice(projectIndex, 1)
-      const currentProject = projectIndex === 0 ? 0 : projects.length - 1
+      let currentProject
+      if (projectIndex === 0) {
+        currentProject = null
+      } else {
+        currentProject = projects.length - 1
+      }
       return { projects, currentProject }
     })
   },

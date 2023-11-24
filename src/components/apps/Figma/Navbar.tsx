@@ -7,8 +7,13 @@ import figmaProjectIcon from '@/assets/apps/figma/project.png'
 import { cn } from '@/utils/styles'
 
 const Navbar = () => {
-  const { projects, currentProject, setCurrentProject, closeProject } =
-    useFigmaStore()
+  const {
+    projects,
+    currentProject,
+    setCurrentProject,
+    closeProject,
+    addProject,
+  } = useFigmaStore()
   return (
     <section className='flex h-10 items-center justify-between rounded-t-lg bg-neutral-800 pl-24 text-xs'>
       <div className='flex h-full items-center'>
@@ -27,7 +32,10 @@ const Navbar = () => {
               <span>{project.title}</span>
               <Icon
                 icon='Cross2Icon'
-                onClick={() => closeProject(index)}
+                onClick={(e) => {
+                  e?.stopPropagation()
+                  closeProject(index)
+                }}
                 className='ml-2 h-3 w-3 cursor-pointer opacity-60 hover:opacity-100'
               />
             </div>
@@ -35,6 +43,7 @@ const Navbar = () => {
         </div>
         <Icon
           icon='PlusIcon'
+          onClick={addProject}
           className='h-full w-9 cursor-pointer px-3 opacity-80 hover:bg-neutral-700/40 hover:opacity-100'
         />
       </div>
