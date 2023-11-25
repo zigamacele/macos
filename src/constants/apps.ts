@@ -3,6 +3,7 @@ import Discord from '@/components/apps/Discord'
 import Figma from '@/components/apps/Figma'
 import Finder from '@/components/apps/Finder'
 import Placeholder from '@/components/apps/Placeholder'
+import VSCode from '@/components/apps/VSCode'
 
 import bin from '@/assets/apps/bin.png'
 import bitwarden from '@/assets/apps/bitwarden.png'
@@ -88,8 +89,7 @@ export const AppWindowConfig: AppsConfig = {
   [App.VSCODE]: {
     width: 1366,
     height: 768,
-    disabled: true,
-    component: Placeholder,
+    component: VSCode,
   },
 }
 
