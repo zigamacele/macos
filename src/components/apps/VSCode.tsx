@@ -1,16 +1,21 @@
 import { Editor } from '@monaco-editor/react'
 
-const VSCode = () => {
-  return (
-    <div className='h-full w-full rounded-lg bg-[#1E1E1E]'>
-      <Editor
-        className='pb-2 pt-10'
-        defaultLanguage='typescript'
-        theme='vs-dark'
-      />
-      <div className='absolute bottom-0 h-6 w-full rounded-b-lg bg-red-500'></div>
-    </div>
-  )
-}
+import StatusBar from './VSCode/StatusBar'
+
+const VSCode = () => (
+  <div className='h-full w-full rounded-lg border-b bg-[#3A3838]'>
+    <Editor
+      className='pb-2 pt-[38px]'
+      defaultLanguage='typescript'
+      theme='vs-dark'
+      options={{
+        minimap: {
+          enabled: false,
+        },
+      }}
+    />
+    <StatusBar />
+  </div>
+)
 
 export default VSCode

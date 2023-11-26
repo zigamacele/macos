@@ -30,6 +30,7 @@
     "dayjs": "^1.11.10",
     "lint-staged": "^14.0.1",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.293.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-rnd": "^10.4.1",
