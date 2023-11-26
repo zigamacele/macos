@@ -22,6 +22,7 @@ export interface AppConfig {
   disabled?: boolean
   minWidth?: number
   minHeight?: number
+  trafficLightsPosition?: string
   component: () => JSX.Element
 }
 

@@ -16,9 +16,14 @@ export const CurrentAppContext = createContext<App>(App.FINDER)
 
 const AppWindow = ({ app }: AppWindowProps) => {
   const { focusedWindow, setFocusWindow } = useWindowManager()
-  const { width, height, component, minHeight, minWidth } = AppWindowConfig[
-    app
-  ] as AppConfig
+  const {
+    width,
+    height,
+    component,
+    minHeight,
+    minWidth,
+    trafficLightsPosition,
+  } = AppWindowConfig[app] as AppConfig
 
   const style = {
     cursor: 'default',
@@ -54,7 +59,7 @@ const AppWindow = ({ app }: AppWindowProps) => {
         enableResizing={app === focusedWindow}
         bounds='window'
       >
-        <TrafficLights />
+        <TrafficLights position={trafficLightsPosition} />
         <AppComponent />
       </Rnd>
     </CurrentAppContext.Provider>

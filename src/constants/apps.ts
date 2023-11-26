@@ -89,6 +89,7 @@ export const AppWindowConfig: AppsConfig = {
   [App.VSCODE]: {
     width: 1366,
     height: 768,
+    trafficLightsPosition: 'top-[9px] left-3',
     component: VSCode,
   },
 }
