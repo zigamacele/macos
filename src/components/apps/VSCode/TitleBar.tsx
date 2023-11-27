@@ -1,7 +1,7 @@
 import { FileIcons, FileType } from '@/constants/file-structure'
 
 const TitleBar = () => (
-  <section className='absolute left-1/2 top-1.5 flex -translate-x-1/2 items-center gap-1 text-xs font-bold text-white'>
+  <section className='absolute left-1/2 z-20 flex h-7 w-full -translate-x-1/2 items-center justify-center gap-1 rounded-t-lg bg-[#3A3838] text-xs font-bold text-white'>
     <img
       src={FileIcons[FileType.TEXT].icon}
       alt='text file icon'
